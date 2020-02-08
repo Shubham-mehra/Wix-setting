@@ -30,6 +30,7 @@ dashApp.controller('createTagsController', function ($scope, $http, $q, $locatio
                             break;
                         }
                     }
+//                     hello this is test for the next 
                     if (thisCtrl.settings.category["DISP_" + (val.Parent.Title).toUpperCase()] == true) {
                         thisCtrl.tagsData.push(val);
 
