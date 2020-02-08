@@ -1,0 +1,64 @@
+
+<!-- <div class="spinner" loading></div> -->
+<!-- <wix-control name="UI.preloader" loading></wix-control> -->
+<button type="button">Back</button><br>
+
+<h1>{{recipes[index].recipeName}}</h1><br>
+
+
+<img src="{{recipes[index].recipeImageSrc}}" style="width:50px;height:50px;" alt="{{recipes[index].recipeName}}"><br>
+
+   
+<p>{{recipes[index].shortDescription}}</p><br>
+        
+
+<p>Serv Size : {{recipes[index].servingSize}}</p>
+<p>Prep Time : {{recipes[index].prepTime}}</p>
+<p>Total Time : {{recipes[index].totalTime}}</p><br>
+
+<span >Tags : </span>
+<span ng-repeat="tag in recipes[index].tags track by $index" >{{tag}}  </span><br>
+
+<span >Nutrition Facts : </span>
+<p>Calories : {{recipes[index].nutrition.calories}}</p>
+<p>Fat : {{recipes[index].nutrition.fat}}</p>
+<p>Carbohydrate : {{recipes[index].nutrition.carbo}}</p>
+<p>Protien : {{recipes[index].nutrition.protien}}</p>
+<p>Disclaimer : {{recipes[index].nutrition.disclaimer}}</p>
+<br>
+
+<h2>Ingredients</h2><br>
+
+
+<div  ng-repeat="ingre in recipes[index].ingredients track by $index" >
+    <h2>{{ingre.dish}}</h2>
+    <ul>
+    <li ng-repeat="ingreEle in ingre.ingredient track by $index">
+       {{ingreEle}}
+    </li>
+    </ul>
+</div><br>
+
+<h2>Directions</h2><br>
+    <ul>
+    <li ng-repeat="direc in recipes[index].directions track by $index">
+       {{direc.step}} : {{direc.direction}}
+    </li>
+    </ul>
+<br>  
+
+<h2>Expert Tips</h2><br>
+    <ul>
+    <li ng-repeat="expertT in recipes[index].expertTips track by $index">
+       {{expertT}}
+    </li>
+    </ul>
+<br>  
+ 
+
+
+   
+
+
+
+

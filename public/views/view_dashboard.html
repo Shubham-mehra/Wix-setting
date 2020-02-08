@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+  <div style="width: 102%;">
+  	<img class="app-logo" src="images/recipes-logo.svg" alt="app logo"/>
+  	<span style="font-size:25px"><span style="padding:8px;">Recipes App</span></span>
+  	<span style="font-size:10px"><span style="padding:4px;">{{'TEXT-BY' | translate}} Disha IT</span></span>
+  <span ng-show="showUpgradeButton"><button type="button" class="btn purple btn-primary btn-md pull-right" style="margin-top:15px;margin-right:5px;" ng-click="openBilling()">{{'BUTTON-UPGRADE' | translate}}</button></span>
+  <span><a href="" ng-click="contactUs()"><button type="button" class="btn btn-outline-warning btn-md pull-right" style="margin-top:15px;margin-right:5px;">{{'BUTTON-CONTACTUS' | translate}}</button></a></span>
+  <span><a ng-href={{settingsUrl}} target="_blank"><button type="button" class="btn btn-outline-warning btn-md pull-right" style="margin-top:15px;margin-right:5px;">{{'BUTTON-GOTO' | translate}} Wix Editor</button></a></span>
+    </div>
+  </div>
+</nav>
+<div class="container" style="padding-top: 60px;">
+<!-- <div>{{recipes}}</div>
+ -->
+ <!-- <div>{{settingsUrl}}</div> -->
+ <div ng-show = "needSaving" class="ui small warning message" style="margin-top:30px">
+  <i class="close icon"></i>
+  <div class="header">
+  {{'TEXT-SAVEYOURCHANGES' | translate}}
+  </div>
+  <p>{{'TEXT-DSAVEYOURCHANGES' | translate}}</p>
+</div>
+ <div class="row" style="margin-top:30px;position:relative;">
+    <!-- <button type="button" class="btn btn-outline-primary btn-lg" ng-disabled="!needSaving" ng-click="saveChangesDash()">{{'BUTTON-SAVECHANGES' | translate}}</button> -->
+    <!-- <div style="font-size:25px;padding-right:50px;">Recipes</div><div style="font-size:25px;">Drafts</div> -->
+    <table class="htable">
+    <tr>
+    <td class="hcellactive"><a ng-click="gotoDash()" href='' class="ahhead">Recipes <span style="font-size:17px;">({{theTrueDashRecipes.length}})</span></a></td><td class="hcellnonactive"><a href='' ng-click="gotoDraftRecipe()" class="ahhead">Drafts <span style="font-size:17px;">({{dashIndex}})</span></a></td>
+    </tr>
+    </table>
+  <div class="row">
+    <div ><button type="button" class="btn btn-primary btn-lg" ng-click="gotoCreateRecipe()" ng-if="!theTrueDashRecipes.length==0" style="float:right;margin-top:10px;margin-left: 10px;margin-right: 10px;" >{{'BUTTON-ADDARECIPE' | translate}}</button></div>
+    
+    <div ><button type="button" class="btn btn-primary btn-lg" ng-show="showAddtagsButton" ng-click="gotoCreateTags()" style="float:right;margin-top:10px;" >Add Tags</button></div>
+
+  </div> 
+  </div>
+<!-- <div class="ui icon small message">
+  <i class="small help circle icon"></i>
+  <i class="close icon"></i>
+  <div class="content">
+    <div class="header">
+      Get Started !!
+    </div>
+    <p>Add a recipe or click on the pencil icon to edit a recipe , you can reorder recipes by dragging the recipes using the bar icon on the right and delete by clicking on the bin icon</p>
+  </div>
+</div> -->
+<div class="row rowDash" >
+<!-- Spash page to be displayed when there is no Recipes -->
+<div ng-if="theTrueDashRecipes.length==0" style="text-align:center;"><h2>{{'TEXT-WELCOME' | translate}}<br>{{'TEXT-WELCOME2' | translate}}</h2><br><button type="button" class="btn btn-primary btn-lg" ng-click="gotoCreateRecipe()" >{{'BUTTON-ADDARECIPE' | translate}}</button></div>
+
+
+
+<div class="list-group" id="sortable">
+  <div class="list-group-item" ng-repeat="recipe in theTrueDashRecipes" ng-if="recipe.showRecipe == true" ng-cloak><a  href=""><span style="padding:10px;vertical-align: -webkit-baseline-middle;"><i ng-if="theTrueDashRecipes.length > 1" class="fa fa-bars fa-1x" aria-hidden="true"></i></span></a>
+    <a class="ui red left corner label" ng-if="recipe.videoURL !=''">
+        <i class="video play icon"></i>
+    </a>
+  <img ng-src="{{recipe.recipeImageSrc}}" class="dashboardImages img-rounded "><span style="font-size:20px"><span style="padding:8px;">{{recipe.recipeName}}</span></span><a href="" ng-click= "editRecipe(recipe)"><i class="fa fa-pencil fa-2x" aria-hidden="true" style="padding:8px;float:right;"></i></a><a href=""  ng-click="removeRecipeDash(recipe)"><i class="fa fa-trash fa-2x" aria-hidden="true" style="padding:8px;float:right;"></i></a></div>
+</div>
+</div>
+</div><!-- <div class="container-fluid"> -->

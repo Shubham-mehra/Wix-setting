@@ -1,0 +1,526 @@
+<div class="container">
+  <div class="row">
+  </div>
+  <div class="row" style="margin-top:30px">
+    <a href="" ng-click="checkBackDraft()"><button type="button"
+        class="btn btn-outline-primary btn-lg">{{'BUTTON-BACK' | translate}}</button></a>
+  </div>
+  <div class="row">
+    <div class="stepwizard col-md-offset-2" style="width:75%;">
+      <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+          <div style="position:relative;text-align: center;"><a href="#step-1" type="button"
+              class="btn btn-primary btn-circle" style="-webkit-appearance:none">1</a></div>
+          <p style="position:relative;text-align: center;">{{'TEXT-GENERALINFO' | translate}}</p>
+        </div>
+        <div class="stepwizard-step">
+          <div style="position:relative;text-align: center;"><a href="#step-2" type="button"
+              class="btn btn-default btn-circle" disabled="disabled" style="-webkit-appearance:none">2</a></div>
+          <p style="position:relative;text-align: center;">{{'TEXT-INGREDIENTS' | translate}}</p>
+        </div>
+        <div class="stepwizard-step">
+          <div style="position:relative;text-align: center;"><a href="#step-3" type="button"
+              class="btn btn-default btn-circle" disabled="disabled" style="-webkit-appearance:none">3</a></div>
+          <p style="position:relative;text-align: center;">{{'TEXT-DIRECTIONS' | translate}}</p>
+        </div>
+        <div class="stepwizard-step">
+          <div style="position:relative;text-align: center;"><a href="#step-4" type="button"
+              class="btn btn-default btn-circle" disabled="disabled" style="-webkit-appearance:none">4</a></div>
+          <p style="position:relative;text-align: center;">{{'TEXT-EXTRAS' | translate}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form name="recipeEdit" novalidate>
+    <div class="row setup-content" id="step-1" style="margin-top:30px;margin-bottom:30px;">
+      <div class="col-md-offset-2" style="width:75%;">
+        <div class="col-md-12">
+          <!--<h3>Intro</h3>-->
+          <p class="bigheadings">{{'TEXT-GENERALINFO' | translate}}<p>
+              <hr class="ruler">
+              <div class="form-group"
+                ng-class="{'has-error' : recipeEdit.recipeName.$invalid && !recipeEdit.recipeName.$pristine}">
+                <label>{{'TEXT-RECIPENAME' | translate}}</label>
+                <!-- <input class="form-control"  placeholder="{{'TEXT-ERECIPENAME' | translate}}" name="recipeName" ng-model="recipes[index].recipeName" ng-maxlength="50" required> -->
+                <input class="form-control" placeholder="{{'TEXT-ShortRECIPENAME' | translate}}" name="recipeName"
+                  ng-model="recipes[index].recipeName" ng-maxlength="50" required>
+                <!-- <small class="form-text text-muted ">{{'TEXT-ShortRECIPENAME' | translate}}</small> -->
+                <p ng-show="recipeEdit.recipeName.$invalid && !recipeEdit.recipeName.$pristine" class="help-block">
+                  {{'TEXT-ErrRECIPENAME' | translate}}</p>
+              </div>
+              <div class="form-group">
+                <label>{{'TEXT-DESC' | translate}}</label>
+                <input name="desc" type="hidden" ng-model="recipes[index].shortDescription">
+                <div id="shortDescription"></div>
+                <!-- end of the editor -->
+              </div>
+
+        </div>
+
+
+        <div class="form-group row">
+          <div class="form-group">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"
+              ng-class="{ 'has-error' : recipeEdit.servSize.$invalid && !recipeEdit.servSize.$pristine}">
+              <label>{{'TEXT-SERVSIZE' | translate}}</label>
+              <!-- <input class="form-control" name="servSize" placeholder="{{'TEXT-ESERVSIZE' | translate}}" ng-model="recipes[index].servingSize" ng-maxlength="10" required > -->
+              <input class="form-control" name="servSize" placeholder="{{'TEXT-ShortSERVSIZE' | translate}}"
+                ng-model="recipes[index].servingSize" ng-maxlength="10" required>
+              <!-- <small  class="form-text text-muted ">{{'TEXT-ShortSERVSIZE' | translate}}</small> -->
+              <p ng-show="recipeEdit.servSize.$invalid && !recipeEdit.servSize.$pristine" class="help-block">
+                {{'TEXT-ErrSERVSIZE' | translate}}</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"
+              ng-class="{ 'has-error' : recipeEdit.prepTime.$invalid && !recipeEdit.prepTime.$pristine}">
+              <label>{{'TEXT-PREPTIME' | translate}}</label>
+              <!-- <input class="form-control" name="prepTime" placeholder="{{'TEXT-EPREPTIME' | translate}}" ng-model="recipes[index].prepTime" ng-maxlength="10" required> -->
+              <input class="form-control" name="prepTime" placeholder="{{'TEXT-ShortPREPTIME' | translate}}"
+                ng-model="recipes[index].prepTime" ng-maxlength="10" required>
+              <!-- <small  class="form-text text-muted ">{{'TEXT-ShortPREPTIME' | translate}}</small> -->
+              <p ng-show="recipeEdit.prepTime.$invalid && !recipeEdit.prepTime.$pristine" class="help-block">
+                {{'TEXT-ErrPREPTIME' | translate}}</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"
+              ng-class="{ 'has-error' : recipeEdit.totTime.$invalid && !recipeEdit.totTime.$pristine}">
+              <label>{{'TEXT-TOTALTIME' | translate}}</label>
+              <!-- <input class="form-control" name="totTime" placeholder="{{'TEXT-ETOTALTIME' | translate}}" ng-model="recipes[index].totalTime" name="totalTime" ng-maxlength="10" required> -->
+              <input class="form-control" name="totTime" placeholder="{{'TEXT-ShortTOTALTIME' | translate}}"
+                ng-model="recipes[index].totalTime" name="totalTime" ng-maxlength="10" required>
+              <!-- <small  class="form-text text-muted ">{{'TEXT-ShortTOTALTIME' | translate}}</small> -->
+              <p ng-show="recipeEdit.totTime.$invalid && !recipeEdit.totTime.$pristine" class="help-block">
+                {{'TEXT-ErrTOTALTIME' | translate}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : recipeEdit.tags.$invalid && !recipeEdit.tags.$pristine}">
+          <label>{{'TEXT-TAGS' | translate}}</label>
+          <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip"
+            title="Select up to 6 tags that will help your recipe to get found , seperated by comma.">
+            <span class="fa fa-question-circle-o"></span>
+          </button>
+          <select class="ui fluid search dropdown" name="tags" id="tagss" multiple="" size="5"
+            ng-model="recipes[index].tags" ng-maxlength="6" required>
+            <option value="">{{'TEXT-ShortTAGS' | translate}}</option>
+            <option>{{'TEXT-SHRIMP' | translate}}</option>
+            <option>{{'TEXT-CHICKEN' | translate}}</option>
+            <option>{{'TEXT-EGG' | translate}}</option>
+            <option>{{'TEXT-FISH' | translate}}</option>
+            <option>{{'TEXT-BEEF' | translate}}</option>
+            <option>{{'TEXT-OFFAL' | translate}}</option>
+            <option>{{'TEXT-DUCK' | translate}}</option>
+            <option>{{'TEXT-PORK' | translate}}</option>
+            <option>{{'TEXT-SCALLOPS' | translate}}</option>
+            <option>{{'TEXT-TURKEY' | translate}}</option>
+            <option>{{'TEXT-PASTA' | translate}}</option>
+            <option>{{'TEXT-RABBIT' | translate}}</option>
+            <option>{{'TEXT-RICE' | translate}}</option>
+            <option>{{'TEXT-LAMB' | translate}}</option>
+            <option>{{'TEXT-TACO' | translate}}</option>
+            <option>{{'TEXT-SALMON' | translate}}</option>
+            <option>{{'TEXT-TROUT' | translate}}</option>
+            <option>{{'TEXT-MACKEREL' | translate}}</option>
+            <option>{{'TEXT-SARDINES' | translate}}</option>
+            <option>{{'TEXT-COD' | translate}}</option>
+            <option>{{'TEXT-POLLOCK' | translate}}</option>
+            <option>{{'TEXT-HAKE' | translate}}</option>
+            <option>{{'TEXT-GREYMULLET' | translate}}</option>
+            <option>{{'TEXT-LOBSTER' | translate}}</option>
+            <!-- <option>{{'TEXT-SCALLOPS' | translate}}</option> -->
+            <option>{{'TEXT-MUSSELS' | translate}}</option>
+            <option>{{'TEXT-CLAMS' | translate}}</option>
+            <option>{{'TEXT-TUNA' | translate}}</option>
+            <option>{{'TEXT-AMERICAN' | translate}}</option>
+            <option>{{'TEXT-JAPANESE' | translate}}</option>
+            <option>{{'TEXT-INDIAN' | translate}}</option>
+            <option>{{'TEXT-CHINESE' | translate}}</option>
+            <option>{{'TEXT-AFRICAN' | translate}}</option>
+            <option>{{'TEXT-ASIAN' | translate}}</option>
+            <option>{{'TEXT-MIDDLEEASTERN' | translate}}</option>
+            <option>{{'TEXT-GERMAN' | translate}}</option>
+            <option>{{'TEXT-GREEK' | translate}}</option>
+            <option>{{'TEXT-ITALIAN' | translate}}</option>
+            <option>{{'TEXT-MEXICAN' | translate}}</option>
+            <option>{{'TEXT-THAI' | translate}}</option>
+            <option>{{'TEXT-CARRIBEAN' | translate}}</option>
+            <option>{{'TEXT-ENGLISH-SCOTTISH' | translate}}</option>
+            <option>{{'TEXT-FRENCH' | translate}}</option>
+            <option>{{'TEXT-GLUTENFREE' | translate}}</option>
+            <option>{{'TEXT-FATLOSS' | translate}}</option>
+            <option>{{'TEXT-MUSCLEGAIN' | translate}}</option>
+            <option>{{'TEXT-ENDURANCE' | translate}}</option>
+            <option>{{'TEXT-KETO' | translate}}</option>
+            <option>{{'TEXT-INDONESIAN' | translate}}</option>
+            <option>{{'TEXT-TUNISIAN' | translate}}</option>
+            <option>{{'TEXT-NORTHAFRICAN' | translate}}</option>
+            <option>{{'TEXT-MEDITERRANEAN' | translate}}</option>
+            <option>{{'TEXT-MORROCAN' | translate}}</option>
+            <option>{{'TEXT-VEGAN' | translate}}</option>
+            <option>{{'TEXT-VEGETARIAN' | translate}}</option>
+            <option>{{'TEXT-SEAFOOD' | translate}}</option>
+            <option>{{'TEXT-APPETIZER' | translate}}</option>
+            <option>{{'TEXT-ENTREE' | translate}}</option>
+            <option>{{'TEXT-BREAD' | translate}}</option>
+            <option>{{'TEXT-DESSERT' | translate}}</option>
+            <option>{{'TEXT-COCKTAIL' | translate}}</option>
+            <option>{{'TEXT-NONALCOHOLICBEVERAGES' | translate}}</option>
+            <option>{{'TEXT-COLDDRINKS' | translate}}</option>
+            <option>{{'TEXT-HOTDRINKS' | translate}}</option>
+            <option>{{'TEXT-COFFEE' | translate}}</option>
+            <option>{{'TEXT-B-FAST' | translate}}</option>
+            <option>{{'TEXT-BRUNCH' | translate}}</option>
+            <option>{{'TEXT-LUNCH' | translate}}</option>
+            <option>{{'TEXT-SANDWICH' | translate}}</option>
+            <option>{{'TEXT-SOUP' | translate}}</option>
+            <option>{{'TEXT-SALAD' | translate}}</option>
+            <option>{{'TEXT-SIDES' | translate}}</option>
+            <option>{{'TEXT-SMOOTHIES' | translate}}</option>
+            <option>{{'TEXT-DINNER' | translate}}</option>
+            <option>{{'TEXT-FINGERFOOD' | translate}}</option>
+            <option>{{'TEXT-MONSOON' | translate}}</option>
+            <option>{{'TEXT-SPRING' | translate}}</option>
+            <option>{{'TEXT-WINTER' | translate}}</option>
+            <option>{{'TEXT-SUMMER' | translate}}</option>
+            <option>{{'TEXT-FALL' | translate}}</option>
+            <option>{{'TEXT-EASY' | translate}}</option>
+            <option>{{'TEXT-MEDIUM' | translate}}</option>
+            <option>{{'TEXT-HARD' | translate}}</option>
+          </select>
+          <!-- <small class="form-text text-muted ">{{'TEXT-ShortTAGS' | translate}}</small> -->
+          <p ng-show="recipeEdit.tags.$invalid && !recipeEdit.tags.$pristine" class="help-block">
+            {{'TEXT-ErrTAGS' | translate}}</p>
+        </div>
+
+        <label>{{'TEXT-IMAGE' | translate}}</label>
+        <div class="form-group" style="text-align:center;">
+          <img ng-src="{{recipes[index].recipeImageSrc}}" class="img-rounded recipeDetailImages" alt="">
+          <a href="" ng-click="openMediaDialog(index)"><i class="fa fa-camera fa-2x" aria-hidden="true"
+              style="margin-left:20px;"></i></a>
+          <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip"
+            title="Click on the camera icon to open the Wix Media Library, where you can upload, crop & edit your pics.">
+            <span class="fa fa-question-circle-o"></span>
+          </button>
+
+          <!-- <small  class="form-text text-muted ">{{'TEXT-ShortIMAGE' | translate}}</small> -->
+        </div>
+
+
+        <a href=""><button type="button" class="btn btn-outline-danger btn-lg pull-left"
+            ng-click="deleteRecipeFromDbFromDraft(index,recipes[index].id)">{{'BUTTON-DELETERECIPE' | translate}}</button></a>
+        <a href="" ng-click="saveRecipeToDrafts(index,recipes[index].id)"
+          ng-if="recipes[index].showRecipe == false"><button type="button" style="margin-left:5px;"
+            class="btn btn-outline-info btn-lg pull-left">{{'BUTTON-SAVERECIPETODRAFTS' | translate}}</button></a>
+        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">{{'BUTTON-NEXT' | translate}}</button>
+      </div>
+    </div>
+</div>
+<!--    <div class="row setup-content" id="step-2" style="margin-top:30px;margin-bottom:30px;">
+      <div class="col-md-offset-2" style="width:75%;">
+        <div class="col-md-12">
+ 
+  
+  <a href=""><button type="button" class="btn btn-outline-danger btn-lg pull-left"  ng-click="deleteRecipeFromDbFromDraft(index,recipes[index].id)">{{'BUTTON-DELETERECIPE' | translate}}</button></a>
+              <a href="" ng-click="saveRecipeToDrafts(index,recipes[index].id)" ng-if="recipes[index].showRecipe == false"><button type="button" style= "margin-left:5px;" class="btn btn-outline-info btn-lg pull-left">{{'BUTTON-SAVERECIPETODRAFTS' | translate}}</button></a>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >{{'BUTTON-NEXT' | translate}}</button>
+        </div>
+      </div>
+    </div> -->
+<!--  <div class="row setup-content" id="step-3" style="margin-top:30px;margin-bottom:30px;">
+      <div class="col-md-offset-2" style="width:75%;">
+        <div class="col-md-12">
+
+
+<a href=""><button type="button" class="btn btn-outline-danger btn-lg pull-left"  ng-click="deleteRecipeFromDbFromDraft(index,recipes[index].id)">{{'BUTTON-DELETERECIPE' | translate}}</button></a>
+              <a href="" ng-click="saveRecipeToDrafts(index,recipes[index].id)" ng-if="recipes[index].showRecipe == false"><button type="button" style= "margin-left:5px;" class="btn btn-outline-info btn-lg pull-left">{{'BUTTON-SAVERECIPETODRAFTS' | translate}}</button></a>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >{{'BUTTON-NEXT' | translate}}</button>
+
+</div>
+</div>
+</div> -->
+<!--     <div class="row setup-content" id="step-4" style="margin-top:30px;margin-bottom:30px;">
+      <div class="col-md-offset-2" style="width:75%;">
+        <div class="col-md-12">
+        
+          
+          <a href=""><button type="button" class="btn btn-outline-danger btn-lg pull-left"  ng-click="deleteRecipeFromDbFromDraft(index,recipes[index].id)">{{'BUTTON-DELETERECIPE' | translate}}</button></a>
+              <a href="" ng-click="saveRecipeToDrafts(index,recipes[index].id)" ng-if="recipes[index].showRecipe == false"><button type="button" style= "margin-left:5px;" class="btn btn-outline-info btn-lg pull-left">{{'BUTTON-SAVERECIPETODRAFTS' | translate}}</button></a>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >{{'BUTTON-NEXT' | translate}}</button>
+          
+        </div>
+      </div>
+    </div> -->
+
+<!--  <div class="row setup-content" id="step-5" style="margin-top:30px;margin-bottom:30px;">
+      <div class="col-md-offset-2" style="width:75%;">
+        <div class="col-md-12">
+
+          <a href=""><button type="button" class="btn btn-outline-danger btn-lg pull-left"  ng-click="deleteRecipeFromDbFromDraft(index,recipes[index].id)">{{'BUTTON-DELETERECIPE' | translate}}</button></a>
+              <a href="" ng-click="saveRecipeToDrafts(index,recipes[index].id)" ng-if="recipes[index].showRecipe == false"><button type="button" style= "margin-left:5px;" class="btn btn-outline-info btn-lg pull-left">{{'BUTTON-SAVERECIPETODRAFTS' | translate}}</button></a>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >{{'BUTTON-NEXT' | translate}}</button>
+
+</div>
+</div>
+</div> -->
+<div class="row setup-content" id="step-2" style="margin-top:30px;margin-bottom:30px;">
+  <div class="col-md-offset-2" style="width:75%;">
+    <div class="col-md-12">
+      <p class="bigheadings">{{'TEXT-INGREDIENTS' | translate}}<p>
+          <hr class="ruler">
+          <div class="form-group">
+            <div>
+              <h4>{{'TEXT-COMPO' | translate}}<a href="" ng-click="addNewDishComponent(index)"><i
+                    class="fa fa-plus-circle fa-1x" aria-hidden="true" style="margin-left:8px"></i></a></h4>
+            </div>
+            <span><small class="form-text text-muted ">{{'TEXT-ShortCOMPO' | translate}}</small></span>
+            <!-- <hr width=25%> -->
+          </div>
+
+          <div class="form-group row" ng-repeat="ingre in recipes[index].ingredients track by $index">
+            <ng-form name="CompForm">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-12">{{'TEXT-COMPONAME' | translate}}</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"
+                  ng-class="{ 'has-error' : CompForm.comp.$invalid && !CompForm.comp.$pristine}">
+                  <input class="form-control" placeholder="{{'TEXT-ECOMPNAME' | translate}}" ng-model="ingre.dish"
+                    name="comp" ng-maxlength="50" required>
+                  <p ng-show="CompForm.comp.$invalid && !CompForm.comp.$pristine" class="help-block">
+                    {{'TEXT-ErrCOMPONAME' | translate}}</p>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href=""
+                    ng-click="removeDishComponent(index,recipes[index].ingredients.indexOf(ingre))"><i
+                      class="fa fa-minus-circle fa-2x" aria-hidden="true"
+                      style="vertical-align: -webkit-baseline-middle;"></i></a></div>
+                <div class="form-group row">
+                  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" style="margin-left:15px;">
+                    <div style="text-align:center;margin-top:5px;margin-bottom:5px;">
+                      <h4>{{'TEXT-INGRE' | translate}}<a href=""
+                          ng-click="addIngredient(index,recipes[index].ingredients.indexOf(ingre))"><i
+                            class="fa fa-plus-circle fa-1x" aria-hidden="true"></i></a> )
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip"
+                          title="Enter a list of ingredients for each section.">
+                          <span class="fa fa-question-circle-o"></span>
+                        </button>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"
+                    ng-repeat="(i,ingreEle) in ingre.ingredient track by $index" style="margin-top:5px;">
+                    <ng-form name="IngreForm">
+                      <div class="row" style="margin-left:0;">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                          ng-class="{ 'has-error' : IngreForm.ingre.$invalid && !IngreForm.ingre.$pristine}">
+                          <input class="form-control" id="pIngredient"
+                            ng-keydown="$event.which === 13 && addIngredient(index,recipes[index].ingredients.indexOf(ingre))"
+                            placeholder="{{'TEXT-EINGRE' | translate}}" ng-model="ingre.ingredient[i]" name="ingre"
+                            ng-maxlength="50" required>
+                          <p ng-show="IngreForm.ingre.$invalid && !IngreForm.ingre.$pristine" class="help-block">
+                            {{'TEXT-ErrINGRE' | translate}}</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                          <a href="" ng-click="removeIngredient(index,recipes[index].ingredients.indexOf(ingre),i)"><i
+                              class="fa fa-minus-circle fa-1x" aria-hidden="true"
+                              style="vertical-align: -webkit-baseline-middle;"></i></a>
+                        </div>
+                      </div>
+                    </ng-form>
+                  </div>
+                </div>
+              </div>
+            </ng-form>
+          </div>
+          <a href=""><button type="button" class="btn btn-outline-danger btn-lg pull-left"
+              ng-click="deleteRecipeFromDbFromDraft(index,recipes[index].id)">{{'BUTTON-DELETERECIPE' | translate}}</button></a>
+          <a href="" ng-click="saveRecipeToDrafts(index,recipes[index].id)"
+            ng-if="recipes[index].showRecipe == false"><button type="button" style="margin-left:5px;"
+              class="btn btn-outline-info btn-lg pull-left">{{'BUTTON-SAVERECIPETODRAFTS' | translate}}</button></a>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">{{'BUTTON-NEXT' | translate}}</button>
+    </div>
+  </div>
+</div>
+<div class="row setup-content" id="step-3" style="margin-top:30px;margin-bottom:30px;">
+  <div class="col-md-offset-2" style="width:75%;">
+    <div class="col-md-12">
+      <p class="bigheadings">{{'TEXT-DIRECTIONS' | translate}}<p>
+          <hr class="ruler">
+          <div class="form-group">
+            <div>
+              <h4>{{'TEXT-DIREC' | translate}}<a href="" ng-click="addNewDirection(index)"><i
+                    class="fa fa-plus-circle fa-1x" aria-hidden="true" style="margin-left:8px"></i></a></h4>
+            </div>
+            <span><small class="form-text text-muted ">{{'TEXT-ShortDIREC' | translate}}</small></span>
+            <!-- <hr width=25%> -->
+          </div>
+          <div class="form-group row" ng-repeat="direc in recipes[index].directions track by $index">
+            <ng-form name="direcForm">
+              <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12"
+                ng-class="{ 'has-error' : direcForm.direc.$invalid && !direcForm.direc.$pristine}">
+                <div class="input-group">
+                  <div class="input-group-addon">{{direc.step}}</div>
+                  <!-- <textarea class="form-control" name="direc" id="pDirection" 
+                    ng-keydown="$event.which === 13 && addNewDirection(index)"
+                    placeholder="{{'TEXT-EDIREC' | translate}}" ng-model="direc.direction" row="3" required></textarea>-->
+                    <input name="direc" type="hidden" ng-model="direc.direction">
+                    <div ng-attr-id="{{'directions_'+$index+'_direction'}}"  name="ingre" ng-init="addIngredientId('directions_'+$index+'_direction');"></div>
+                 </div>
+                <!-- <small class="form-text text-muted ">Enter step by step directions for your recipe</small> -->
+                <p ng-show="direcForm.direc.$invalid && !direcForm.direc.$pristine" class="help-block">
+                  {{'TEXT-ErrDIREC' | translate}}</p>
+
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                <a href="" ng-click="removeDirection(index,recipes[index].directions.indexOf(direc))"><i
+                    class="fa fa-minus-circle fa-1x" aria-hidden="true"
+                    style="vertical-align: -webkit-baseline-middle;"></i></a>
+              </div>
+            </ng-form>
+          </div>
+          <a href=""><button type="button" class="btn btn-outline-danger btn-lg pull-left"
+              ng-click="deleteRecipeFromDbFromDraft(index,recipes[index].id)">{{'BUTTON-DELETERECIPE' | translate}}</button></a>
+          <a href="" ng-click="saveRecipeToDrafts(index,recipes[index].id)"
+            ng-if="recipes[index].showRecipe == false"><button type="button" style="margin-left:5px;"
+              class="btn btn-outline-info btn-lg pull-left">{{'BUTTON-SAVERECIPETODRAFTS' | translate}}</button></a>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">{{'BUTTON-NEXT' | translate}}</button>
+    </div>
+  </div>
+</div>
+<div class="row setup-content" id="step-4" style="margin-top:30px;margin-bottom:30px;">
+  <div class="col-md-offset-2" style="width:75%;">
+    <div class="col-md-12">
+      <span class="bigheadings" style="display:inline;">{{'TEXT-EXTRAS' | translate}}</span
+        style="display:inline;"><span>{{'TEXT-OPTION' | translate}}</span>
+      <hr class="ruler">
+      <p class="headings">{{'TEXT-NUTRIFACTS' | translate}}<p>
+          <hr class="ruler">
+
+          <div class="form-group" ng-class="{ 'has-error' : recipeEdit.calories.$invalid}">
+            <label>{{'TEXT-CALORIES' | translate}}</label>
+            <!-- <input class="form-control"  placeholder="{{'TEXT-ECALORIES' | translate}}" name="calories" ng-model="recipes[index].nutrition.calories" ng-maxlength="10"> -->
+            <input class="form-control" placeholder="{{'TEXT-ShortCALORIES' | translate}}" name="calories"
+              ng-model="recipes[index].nutrition.calories" ng-maxlength="10">
+            <!--  <small class="form-text text-muted ">{{'TEXT-ShortCALORIES' | translate}}</small> -->
+            <p ng-show="recipeEdit.calories.$invalid" class="help-block">{{'TEXT-ErrCALORIES' | translate}}</p>
+          </div>
+
+          <div class="form-group row">
+            <div class="form-group">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" ng-class="{ 'has-error' : recipeEdit.fat.$invalid}">
+                <label>{{'TEXT-FAT' | translate}}</label>
+                <!-- <input class="form-control" name="fat" placeholder="{{'TEXT-EFAT' | translate}}" ng-model="recipes[index].nutrition.fat" ng-maxlength="10"> -->
+                <input class="form-control" name="fat" placeholder="{{'TEXT-ShortFAT' | translate}}"
+                  ng-model="recipes[index].nutrition.fat" ng-maxlength="10">
+                <!-- <small  class="form-text text-muted ">{{'TEXT-ShortFAT' | translate}}</small> -->
+                <p ng-show="recipeEdit.fat.$invalid" class="help-block">{{'TEXT-ErrFAT' | translate}}</p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" ng-class="{ 'has-error' : recipeEdit.carbo.$invalid}">
+                <label>{{'TEXT-CARBO' | translate}}</label>
+                <!-- <input class="form-control" name="carbo" placeholder="{{'TEXT-ECARBO' | translate}}" ng-model="recipes[index].nutrition.carbohydrate" ng-maxlength="10"> -->
+                <input class="form-control" name="carbo" placeholder="{{'TEXT-ShortCARBO' | translate}}"
+                  ng-model="recipes[index].nutrition.carbohydrate" ng-maxlength="10">
+                <!--  <small  class="form-text text-muted ">{{'TEXT-ShortCARBO' | translate}}</small> -->
+                <p ng-show="recipeEdit.carbo.$invalid" class="help-block">{{'TEXT-ErrCARBO' | translate}}</p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" ng-class="{ 'has-error' : recipeEdit.protien.$invalid}">
+                <label>{{'TEXT-PROTIEN' | translate}}</label>
+                <!-- <input class="form-control" name="protien" placeholder="{{'TEXT-EPROTIEN' | translate}}" ng-model="recipes[index].nutrition.protien" name="totalTime" ng-maxlength="10"> -->
+                <input class="form-control" name="protien" placeholder="{{'TEXT-ShortPROTIEN' | translate}}"
+                  ng-model="recipes[index].nutrition.protien" name="totalTime" ng-maxlength="10">
+                <!-- <small  class="form-text text-muted ">{{'TEXT-ShortPROTIEN' | translate}}</small> -->
+                <p ng-show="recipeEdit.protien.$invalid" class="help-block">{{'TEXT-ErrPROTIEN' | translate}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : recipeEdit.disclaimer.$invalid}">
+            <label>{{'TEXT-DISCLAIMER' | translate}}</label>
+            <!-- <textarea class="form-control"  placeholder="{{'TEXT-EDISCLAIMER' | translate}}" rows="3" name="disclaimer" ng-model="recipes[index].nutrition.disclaimer" ng-maxlength="150"></textarea> -->
+            <!-- <textarea class="form-control"  placeholder="{{'TEXT-ShortDISCLAIMER' | translate}}" rows="3" name="disclaimer" ng-model="recipes[index].nutrition.disclaimer" ng-maxlength="150"></textarea> -->
+            <!-- <small  class="form-text text-muted ">{{'TEXT-ShortDISCLAIMER' | translate}}</small> -->
+            <!-- <p ng-show="recipeEdit.disclaimer.$invalid" class="help-block">{{'TEXT-ErrDISCLAIMER' | translate}}</p> -->
+            <input type="hidden" name="disclaimer" ng-model="recipes[index].nutrition.disclaimer">
+            <div id="nutrition_disclaimer"></div>
+          </div>
+
+          <p class="headings">{{'TEXT-VIDEO' | translate}}
+            <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip"
+              title="Adding a short video is a good way to spice up your recipe with quick , visual instructions.">
+              <span class="fa fa-question-circle-o"></span>
+            </button>
+            <p>
+              <hr class="ruler">
+              <div class="form-group">
+                <!-- <label >{{'TEXT-VIDEO' | translate}}</label> -->
+                <div style="display:flex;" ng-class="{ 'has-warning' : urlIsInvalid}">
+                  <input class="form-control" placeholder="e.g. https://www.youtube.com/watch?v=H8oprLR9WFY"
+                    name="videoURL" ng-model="recipes[index].videoURL">
+                  <button class="btn btn-primary btn-sm pull-right" type="button"
+                    ng-click="showVideo(recipes[index].videoURL,index)"
+                    style="margin: 0 1% 0 1%;">{{'BUTTON-TESTVIDEO' | translate}}</button></div><small
+                  class="form-text text-muted ">{{'TEXT-ShortVIDEO' | translate}}</small>
+                <p ng-if="urlIsInvalid" class="help-block" style="color: #f0ad4e;">
+                  {{'TEXT-ErrVIDEO1' | translate}}{{videoP}}{{'TEXT-ErrVIDEO2' | translate}}</p>
+
+                <div style="text-align:center;">
+                  <iframe class="embed-responsive-item iframeborderstyle" ng-src="{{trustedVideo}}" allowfullscreen
+                    controls></iframe>
+                </div>
+              </div>
+
+              <p class="headings">{{'TEXT-TIPS' | translate}}<p>
+                  <hr class="ruler">
+                  <div class="form-group">
+                    <div>
+                      <h4>{{'TEXT-EXPERTTIPS' | translate}}<a href="" ng-click="addNewExpertTip(index)"><i
+                            class="fa fa-plus-circle fa-1x" aria-hidden="true" style="margin-left:8px"></i></a></h4>
+                    </div>
+                    <span><small class="form-text text-muted ">{{'TEXT-ShortEXPERTTIPS' | translate}}</small></span>
+                    <!-- <hr width=25%> -->
+                  </div>
+                  <div class="form-group row" ng-repeat="(i , expertT) in recipes[index].expertTips track by $index">
+                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-lightbulb-o fa-1x" aria-hidden="true"></i></div>
+                        <!-- <textarea class="form-control" name="expert"
+                          ng-keydown="$event.which === 13 && addNewExpertTip(index)" id="pExpertTip"
+                          placeholder="{{'TEXT-ETIP' | translate}}" ng-model="recipes[index].expertTips[i]"
+                          row="2"></textarea> -->
+                          <input name="expert" type="hidden"  ng-model="recipes[index].expertTips[i]">
+                          <div ng-attr-id="{{'expertTips_'+i}}" name="ingre" ng-init="addIngredientId('expertTips_'+i);"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                      <a href="" ng-click="removeExpertTip(index,i)"><i class="fa fa-minus-circle fa-1x"
+                          aria-hidden="true" style="vertical-align: -webkit-baseline-middle;"></i></a>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top:30px">
+                    <a href=""><button type="button" class="btn btn-outline-danger btn-lg pull-left"
+                        ng-click="deleteRecipeFromDbFromDraft(index,recipes[index].id)">{{'BUTTON-DELETERECIPE' | translate}}</button></a>
+                    <a href="" ng-click="saveRecipeToDrafts(index,recipes[index].id)"
+                      ng-if="recipes[index].showRecipe == false"><button type="button" style="margin-left:5px;"
+                        class="btn btn-outline-info btn-lg pull-left">{{'BUTTON-SAVERECIPETODRAFTS' | translate}}</button></a>
+                    <!-- <a href=""><button type="button" class="btn btn-success btn-lg pull-right" ng-disabled="recipeEdit.$invalid" ng-click="updateRecipeToDbDraft(index,recipes[index].id)">Submit Recipe</button></a> -->
+
+                    <span class="tool-tip pull-right" data-toggle="tooltip" data-placement="top"
+                      title="Please fill/correct all the required fields(*) or the fields marked in red"
+                      ng-show="recipeEdit.$invalid"><a href=""
+                        ng-click="updateRecipeToDbDraft(index,recipes[index].id)"><button type="button"
+                          class="btn btn-success btn-lg pull-right"
+                          ng-disabled="recipeEdit.$invalid">{{'BUTTON-SUBMITRECIPE' | translate}}</button></a>
+                    </span>
+
+                    <a href="" ng-show="!recipeEdit.$invalid"
+                      ng-click="updateRecipeToDbDraft(index,recipes[index].id)"><button type="button"
+                        class="btn btn-success btn-lg pull-right"
+                        ng-disabled="recipeEdit.$invalid">{{'BUTTON-SUBMITRECIPE' | translate}}</button></a>
+
+                  </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+</div><!-- <div class="container-fluid"> -->

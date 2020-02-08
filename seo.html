@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html >
+<head>
+<base href="/"></base>
+<meta name="fragment" content="!">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale = 1">
+
+</head>
+<body ng-app="recipeApp" ng-controller="mainCtrlSeo">
+
+
+ <div> 
+<input type="text" placeholder="Enter search term to find your recipe"><br>
+
+<p>Main Ingredient</p>
+<select>
+          <option value="">None</option>
+          <option value="Shrimp">Shrimp</option>
+          <option value="Chicken">Chicken</option>
+          <option value="Egg">Egg</option>
+          <option value="Fish">Fish</option>
+          <option value="Beef">Beef</option>
+          <option value="Offal">Offal</option>
+          <option value="Duck">Duck</option>
+          <option value="Pork">Pork</option>
+          <option value="Scallops">Scallops</option>
+          <option value="Turkey">Turkey</option>
+          <option value="Pasta">Pasta</option>
+          <option value="Rabbit">Rabbit</option>
+          <option value="Rice">Rice</option>
+          <option value="Lamb">Lamb</option>
+</select><br>
+
+<p>Cuisine</p>
+<select>
+          <option value="">None</option>
+          <option value="American">American</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Indian">Indian</option>
+          <option value="Chinese">Chinese</option>
+          <option value="African">African</option>
+          <option value="Asian">Asian</option>
+          <option value="Middle Eastern">Middle Eastern</option>
+          <option value="German">German</option>
+          <option value="Greek">Greek</option>
+          <option value="Italian">Italian</option>
+          <option value="Mexican">Mexican</option>
+          <option value="Thai">Thai</option>
+          <option value="Carribean">Carribean</option>
+          <option value="English-Scottish">English-Scottish</option>
+          <option value="French">French</option>
+          <option value="Gluten Free">Gluten Free</option>
+          <option value="Indonesian">Indonesian</option>
+          <option value="Vegan">Vegan</option>
+          <option value="Vegetarian">Vegetarian</option>
+</select><br>
+
+<p>Course</p>
+<select>
+          <option value="">None</option>
+          <option value="Appetizer">Appetizer</option>
+          <option value="Main Course">Entree</option>
+          <option value="Bread">Bread</option>
+          <option value="Entree">Entree</option>
+          <option value="Desert">Desert</option>
+          <option value="Cocktail">Cocktail</option>
+          <option value="Non-Alcoholic Beverages">Non-Alcoholic Beverages</option>
+          <option value="B-Fast">B-Fast</option>
+          <option value="Brunch">Brunch</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Sandwich">Sandwich</option>
+          <option value="Soup">Soup</option>
+          <option value="Salad">Salad</option>
+          <option value="Sides">Sides</option>
+          <option value="Dinner">Dinner</option>
+</select><br>
+
+<p>Season</p>
+<select>
+          <option value="">None</option>
+          <option value="Monsoon">Monsoon</option>
+          <option value="Spring">Spring</option>
+          <option value="Winter">Winter</option>
+          <option value="Summer">Summer</option>
+          <option value="Fall">Fall</option>
+</select><br>
+
+<p>Time</p>
+<select>
+          <option value="">None</option>
+          <option value="BreakFast">BreakFast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Brunch">Brunch</option>
+          <option value="Dinner">Dinner</option>
+</select><br>
+
+<p>Difficulty</p>
+<select>
+          <option value="">None</option>
+          <option value="BreakFast">BreakFast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Brunch">Brunch</option>
+          <option value="Dinner">Dinner</option>
+</select><br>
+
+
+<div ng-repeat="recipe in trueRecipes">
+
+<a href= "{{sectionUrl}}/recipe/{{recipe.UUID}}"><div><img style="width:50px;height:50px;" src="{{recipe.recipeImageSrc}}"  alt="{{recipe.recipeName}}"></div>
+<h4>{{recipe.recipeName}}</h4></a>
+
+<div>
+<span >Tags : </span>
+<span ng-repeat="tag in recipe.tags">{{tag}} </span>
+</div>
+
+</div><!--ng-repeat -->
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-with-addons.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.js"></script>
+<script src="//static.parastorage.com/services/js-sdk/1.69.0/js/wix.min.js"></script>
+<script src="//static.parastorage.com/services/editor-ui-lib/1.23.0/lib/editor-ui-lib-angular.min.js"></script>
+
+<script src="https://radiant-island-16688.herokuapp.com/controllers/controller_seo.js"></script>
+
+</body>
+</html>

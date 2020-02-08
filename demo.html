@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html >
+<head>
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<!--Vendor CSS-->
+<base href="/"></base>
+<!-- <meta name="fragment" content="!"> -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale = 1">
+<!-- <meta name="viewport" content="width=280px, maximum-scale=1.0" /> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link rel="stylesheet" 	href="styles/recipe.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-with-addons.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.js"></script>
+<script type="text/javascript" src="//static.parastorage.com/services/js-sdk/1.109.0/js/wix.min.js"></script>
+<script src="//static.parastorage.com/services/editor-ui-lib/1.23.0/lib/editor-ui-lib-angular.min.js"></script>
+
+
+<style ng-non-bindable wix-style>
+body {
+	background-color: #ffffff;
+}
+#theSearchBox{
+	background-color: #f2f2f2;
+}
+#theDropDown{
+	background-color: #f2f2f2;
+}
+md-option{
+	background-color: #f2f2f2;
+}
+.therecipesBoxBackColor{
+	background-color: #ffffff!important;
+}
+#theSearchStrip{
+	background-color: #ffffff;
+}
+#theSearchStrip::-webkit-input-placeholder{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+#theSearchStrip::-moz-placeholder{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+.theTagFont{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+.theTagRecipeFont{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+md-select .md-select-value.md-select-placeholder,div.md-text{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+.ingreBackColor{
+	background-color: #ffffff;
+}
+.ingreFontandColor{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+.direcBackColor{
+	background-color: #ffffff;
+}
+.direcFontandColor{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+	font-weight:normal;
+}
+.expertBackColor{
+	background-color: #ffffff;
+}
+.expertFontandColor{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+	font-weight:normal;
+}
+.theDescription{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+
+.thebackButtonColor{
+	background-color: #4db8ff;
+}
+.backButtonFont{
+	font-family: "Helvetica";
+	font-size:large;
+	color: #ffffff;
+}
+.badgeBackColor{
+	background-color: rgba(255,255,255,0.25);
+}
+.btn-primary .badge , .btn-success .badge , .btn-info .badge{
+	font-family: "Helvetica";
+	color: #000000;
+}
+#theIngrePanel{
+	background-color: #4db8ff;
+}
+#recipeNameFont{
+	font-family: "Helvetica";
+	font-size:large;
+	color: #000000;
+}
+.socialIcons{
+	color: #000000;
+}
+.recipeNameFontDet{
+	font-family: "Helvetica";
+	font-size:large;
+	color: #000000;
+}
+.PanelNameFont{
+	font-family: "Helvetica";
+	font-size:large;
+	color: #ffffff;
+}
+.componentPanelNameFont{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #4db8ff;
+}
+.socialIconsDet1{
+	color: #000000;
+}
+.thePanelColor{
+	background-color: #4db8ff;
+}
+.theComponentPanelColor{
+	background-color: #ffffff;
+}
+
+.thetagColor{
+	background-color: #efefef;
+}
+.thetagFont{
+	font-family: "Helvetica";
+	font-size:smaller;
+	color: #000000;
+}
+.theSPTPanel{
+	font-family: "Helvetica";
+	font-size:large;
+	color: #ffffff;
+}
+.SPTB{
+	background-color: #4db8ff;
+}
+.theNUTSectionBackColor{
+	background-color:#ffffff;
+}
+.theNUTServingSize{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+.theNUTAmount{
+	font-family: "Helvetica";
+	font-size:smaller;
+	color: #000000;
+}
+
+.theNUTCalories{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+
+.theNUTFat{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+
+.theNUTCarbo{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+.theNUTProtien{
+	font-family: "Helvetica";
+	font-size:medium;
+	color: #000000;
+}
+.theNUTDisclaimer{
+	font-family: "Helvetica";
+	font-size:smaller;
+	color: #000000;
+}
+
+</style>
+</head>
+<body ng-app="recipeAppDemo" ng-cloak>
+
+<div ng-view id="mydiv" ng-cloak></div>
+<!--Vendor JS Libraries onload="onViewLoad()"-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+<script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.13.0/angular-translate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.9/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.13.0/angular-translate-loader-static-files.min.js"></script>
+
+
+<script src="config_demo.js"></script>
+<script src="controllers/controller_demo.js"></script>
+<script src="controllers/controller_recipeDemo.js"></script>
+<script src="directives/directive_loading.js"></script>
+<script src="services/checkDomChange-demo.js"></script>
+
+</body>
+</html>

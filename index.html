@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html >
+<head>
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<!--Vendor CSS-->
+<base href="/"></base>
+<!-- <meta name="fragment" content="!"> -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale = 1">
+<!-- <meta name="viewport" content="width=280px, maximum-scale=1.0" /> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link rel="stylesheet" 	href="styles/recipe.css">
+<!-- <link rel="stylesheet" 	href="styles/quillstyle.css"> -->
+
+<link rel="stylesheet" type="text/css" href=" https://printjs-4de6.kxcdn.com/print.min.css">
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-with-addons.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.js"></script>
+<script type="text/javascript" src="//static.parastorage.com/services/js-sdk/1.109.0/js/wix.min.js"></script>
+<script src="//static.parastorage.com/services/editor-ui-lib/1.23.0/lib/editor-ui-lib-angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.min.js"></script>
+<link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+
+
+<style ng-non-bindable wix-style>
+body{
+	background-color: {{style.myBackgroundColor3 color-1}};
+}
+
+#theSearchBox{
+	background-color: {{style.search_backgroundColor color-2}};
+}
+#theDropDown{
+	background-color: {{style.drop_backgroundColor color-2}};
+}
+md-option{
+	background-color: {{style.drop_backgroundColor color-2}};
+}
+.therecipesBoxBackColor{
+	background-color: {{style.recipeBox_backgroundColor color-1}}!important;
+}
+#theSearchStrip{
+	background-color: {{style.searchStrip_backgroundColor color-1}};
+}
+#theSearchStrip::-webkit-input-placeholder{
+	{{style.inputTextFonts2 Body-M}}
+	color: {{style.inputTextColor1 color-5}}
+}
+#theSearchStrip::-moz-placeholder{
+	{{style.inputTextFonts2 Body-M}}
+	color: {{style.inputTextColor1 color-5}}
+}
+
+#theSearchStrip:-ms-input-placeholder{
+	{{style.inputTextFonts2 Body-M}}
+	color: {{style.inputTextColor1 color-5}}
+}
+
+#theSearchStrip:-moz-placeholder{
+	{{style.inputTextFonts2 Body-M}}
+	color: {{style.inputTextColor1 color-5}}
+}
+
+.theTagFont{
+	{{style.tagLabelFont1 Body-M}}
+	color: {{style.tagLabelColor color-5}}
+}
+.theTagRecipeFont{
+	{{style.tagLabelRecipeFont1 Body-M}}
+	color: {{style.tagLabelRecipeColor color-5}}
+}
+md-select .md-select-value.md-select-placeholder , div.md-text{
+	{{style.filterTextFonts1 Body-M}}
+	color: {{style.filterTextColor color-5}}!important
+}
+.ingreBackColor{
+	background-color: {{style.ingreList_backgroundColor color-1}};
+}
+.ingreFontandColor{
+	{{style.ingreListFont1 Body-M}}
+	color: {{style.ingreListColor color-5}}
+}
+.direcBackColor{
+	background-color: {{style.directions_backgroundColor color-1}};
+}
+.direcFontandColor{
+	{{style.directionsFont1 Body-M}}
+	color: {{style.directionsColor color-5}}
+}
+.expertBackColor{
+	background-color: {{style.tips_backgroundColor color-1}};
+}
+.expertFontandColor{
+	{{style.tipsFont1 Body-M}}
+	color: {{style.tipsColor color-5}}
+}
+.theDescription{
+	{{style.theDescriptionFont Body-L}}
+	color: {{style.theDescriptionColor color-5}}
+}
+.theRecipeDescription{
+	{{style.theRecipeDescriptionFont2 Body-M}}
+	color: {{style.theRecipeDescriptionColor2 color-5}}
+}
+
+.thebackButtonColor{
+	background-color: {{style.backButtonBackColor1 color-8}};
+}
+.backButtonFont{
+	{{style.backButtonFont Heading-S}}
+	color: {{style.backButtonColor color-1}}
+}
+/*.badgeBackColor{
+	background-color: {{style.badgeBackColor2 color-1}};
+}*/
+.badgeBackColor{
+	background-color: rgba(255,255,255,0.25);
+}
+.badge{
+
+	{{style.theSPTPanelFont3 Body-M}}
+	color: {{style.theSPTPanelColor2 color-1}}
+}
+#theIngrePanel{
+	background-color: {{style.ingrePanel_backgroundColor color-1}};
+}
+#recipeNameFont{
+	{{style.theRecipeNameFont Heading-M}}
+	color: {{style.theRecipeNameColor color-5}}
+}
+.socialIcons{
+	color: {{style.thesocialIcons color-5}}
+}
+.recipeNameFontDet{
+	{{style.theRecipeNameFontDet Heading-M}}
+	color: {{style.theRecipeNameColorDet color-5}}
+}
+.PanelNameFont{
+	{{style.theNameFontPanel Heading-S}}
+	color: {{style.theNameColorPanel color-1}}
+}
+.componentPanelNameFont{
+	{{style.componentFont1 Body-L}}
+	color: {{style.componentColor1 color-8}}
+}
+.socialIconsDet1{
+	color: {{style.thesocialIconsDet1 color-5}}
+}
+.thePanelColor{
+	background-color:{{style.myBackgroundColorPanel1 color-8}};
+}
+.theComponentPanelColor{
+	background-color:{{style.component_backgroundColor2 color-1}};
+}
+.theservSizeColor{
+	background-color:{{style.servSizeColor1 color-9}};
+}
+.thetagColor_SearchPage{
+	background-color:{{style.tagColor1 color-2}};
+}
+.thetagFont_SearchPage{
+	{{style.tagFont Body-S}}
+	color: {{style.tagFontColor1 color-5}}
+}
+.thetagColorDetail{
+	background-color:{{style.tagColor2 color-2}};
+}
+
+.thetagFontDetail{
+	{{style.tagFontDetailPage Body-S}}
+	color: {{style.tagFontColorDetailPage color-5}}
+}
+.theSPTPanel{
+	{{style.theSPTPanelFont3 Body-M}}
+	color: {{style.theSPTPanelColor2 color-1}}
+}
+.theNUTSectionBackColor{
+	background-color:{{style.theNUTSectionBackColor color-1}};
+}
+.theNUTServingSize{
+	{{style.theServingsPerRecipeFont1 Body-M}}
+	color: {{style.theServingsPerRecipeFontColor1 color-5}}
+}
+.theNUTAmount{
+	{{style.theServingsPerRecipeFont1 Body-M}}
+	color: {{style.theServingsPerRecipeFontColor1 color-5}}
+}
+
+.theNUTCalories{
+	{{style.theServingsPerRecipeFont1 Body-M}}
+	color: {{style.theServingsPerRecipeFontColor1 color-5}}
+}
+
+.theNUTFat{
+	{{style.theServingsPerRecipeFont1 Body-M}}
+	color: {{style.theServingsPerRecipeFontColor1 color-5}}
+}
+
+.theNUTCarbo{
+	{{style.theServingsPerRecipeFont1 Body-M}}
+	color: {{style.theServingsPerRecipeFontColor1 color-5}}
+}
+.theNUTProtien{
+	{{style.theServingsPerRecipeFont1 Body-M}}
+	color: {{style.theServingsPerRecipeFontColor1 color-5}}
+}
+.theNUTDisclaimer{
+	{{style.theNutDisclaimerFont Body-S}}
+	color: {{style.theNutDisclaimerColor color-5}}
+}
+.listbutton{
+	
+	background:{{style.theButtonListOpa color-8}} !important;
+	border:1px solid {{color-8}} !important;
+	color:{{style.theRecipeNameColor color-5}} !important;
+}
+.listbuttonfont{
+	{{style.tagLabelFont1 Body-M}} !important;
+}
+
+</style>
+</head>
+<body ng-app="recipeApp" ng-cloak>
+
+<div ng-view id="mydiv" ng-cloak></div>
+<!--Vendor JS Libraries onload="onViewLoad()"-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+<script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.13.0/angular-translate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.9/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.13.0/angular-translate-loader-static-files.min.js"></script>
+
+
+<script src="config_index.js"></script>
+<script src="controllers/controller_index.js"></script>
+<script src="controllers/controller_recipe.js"></script>
+<script src="directives/directive_loading.js"></script>
+<script src="services/checkDomChange.js"></script>
+<script src="services/getLocaleLanguage.js"></script>
+</body>
+</html>

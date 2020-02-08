@@ -1,0 +1,438 @@
+<!---Block view Starts Here-->
+<div class="container-fluid" id="container-fluid-block" ng-if="showBlockLayout">
+  <!--Serach Box in block view starts here-->
+  <div class="well" style="margin-top:20px;" id="theSearchBox" ng-show="settings.disp_RecipePage_SearchBox">
+    <input type="text" class="form-control" id="theSearchStrip" placeholder="{{'TEXT-ENTERSEARCH' | translate}}"
+      ng-model="searchTerm">
+  </div>
+  <!--Serach Box in block view ends here-->
+
+
+  <!---dropdown view in block view starts here-->
+  <div class="well" style="margin-top:20px;" id="theDropDown" ng-show="settings.disp_RecipePage_SearchDrop">
+    <div layout="row" layout-wrap layout-xs="column" layout-align="center" flex>
+      <md-input-container ng-repeat="category in tagsData" style="margin-right: 10px;" ng-show="{{'settings.category.DISP_'+category.Title}}" flex="noshrink" flex-md-="33"
+        flex-sm="33" flex="15" ng-cloak>
+        <label>{{'TEXT-'+category.Title | translate}}</label>
+        <md-select ng-model="drpDwnFiltrSearch[category.Title]"  placeholder="{{ 'TEXT-'+category.Title| translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option ng-repeat="child in category['childs'] | orderBy : 'Order':false" value={{child.Title}}>{{'TEXT-'+child.Title | translate}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+  </div>
+
+
+  <!---dropdown view in block view ends here-->
+  <!-- <div class="well" style="margin-top:20px;" id="theDropDown" ng-show="settings.disp_RecipePage_SearchDrop">
+    <div layout="row" layout-wrap layout-xs="column" layout-align="center" flex>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-MAININGRE' | translate}}</label>
+        <md-select ng-model="mainIngredient" placeholder="{{'TEXT-MAININGRE' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="Shrimp">{{'TEXT-SHRIMP' | translate}}</md-option>
+          <md-option value="Chicken">{{'TEXT-CHICKEN' | translate}}</md-option>
+          <md-option value="Egg">{{'TEXT-EGG' | translate}}</md-option>
+          <md-option value="Fish">{{'TEXT-FISH' | translate}}</md-option>
+          <md-option value="Beef">{{'TEXT-BEEF' | translate}}</md-option>
+          <md-option value="Offal">{{'TEXT-OFFAL' | translate}}</md-option>
+          <md-option value="Duck">{{'TEXT-DUCK' | translate}}</md-option>
+          <md-option value="Pork">{{'TEXT-PORK' | translate}}</md-option>
+          <md-option value="Scallops">{{'TEXT-SCALLOPS' | translate}}</md-option>
+          <md-option value="Turkey">{{'TEXT-TURKEY' | translate}}</md-option>
+          <md-option value="Pasta">{{'TEXT-PASTA' | translate}}</md-option>
+          <md-option value="Rabbit">{{'TEXT-RABBIT' | translate}}</md-option>
+          <md-option value="Rice">{{'TEXT-RICE' | translate}}</md-option>
+          <md-option value="Lamb">{{'TEXT-LAMB' | translate}}</md-option>
+          <md-option value="Taco">{{'TEXT-TACO' | translate}}</md-option>
+          <md-option value="Salmon">{{'TEXT-SALMON' | translate}}</md-option>
+          <md-option value="Trout">{{'TEXT-TROUT' | translate}}</md-option>
+          <md-option value="Mackerel">{{'TEXT-MACKEREL' | translate}}</md-option>
+          <md-option value="Sardines">{{'TEXT-SARDINES' | translate}}</md-option>
+          <md-option value="Cod">{{'TEXT-COD' | translate}}</md-option>
+          <md-option value=”Pollock">{{'TEXT-POLLOCK' | translate}}</md-option>
+          <md-option value="Hake">{{'TEXT-HAKE' | translate}}</md-option>
+          <md-option value="GreyMullet">{{'TEXT-GREYMULLET' | translate}}</md-option>
+          <md-option value="Lobster">{{'TEXT-LOBSTER' | translate}}</md-option>
+          <md-option value="Mussels">{{'TEXT-MUSSELS' | translate}}</md-option>
+          <md-option value="Clams">{{'TEXT-CLAMS' | translate}}</md-option>
+          <md-option value="Tuna">{{'TEXT-TUNA' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-CUISINE' | translate}}</label>
+        <md-select ng-model="cuisine" placeholder="{{'TEXT-CUISINE' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="American">{{'TEXT-AMERICAN' | translate}}</md-option>
+          <md-option value="Japanese">{{'TEXT-JAPANESE' | translate}}</md-option>
+          <md-option value="Indian">{{'TEXT-INDIAN' | translate}}</md-option>
+          <md-option value="Chinese">{{'TEXT-CHINESE' | translate}}</md-option>
+          <md-option value="African">{{'TEXT-AFRICAN' | translate}}</md-option>
+          <md-option value="Asian">{{'TEXT-ASIAN' | translate}}</md-option>
+          <md-option value="Middle Eastern">{{'TEXT-MIDDLEEASTERN' | translate}}</md-option>
+          <md-option value="German">{{'TEXT-GERMAN' | translate}}</md-option>
+          <md-option value="Greek">{{'TEXT-GREEK' | translate}}</md-option>
+          <md-option value="Italian">{{'TEXT-ITALIAN' | translate}}</md-option>
+          <md-option value="Mexican">{{'TEXT-MEXICAN' | translate}}</md-option>
+          <md-option value="Thai">{{'TEXT-THAI' | translate}}</md-option>
+          <md-option value="Carribean">{{'TEXT-CARRIBEAN' | translate}}</md-option>
+          <md-option value="English-Scottish">{{'TEXT-ENGLISH-SCOTTISH' | translate}}</md-option>
+          <md-option value="French">{{'TEXT-FRENCH' | translate}}</md-option>
+          <md-option value="Gluten Free">{{'TEXT-GLUTENFREE' | translate}}</md-option>
+          <md-option value="Fat Loss">{{'TEXT-FATLOSS' | translate}}</md-option>
+          <md-option value="Muscle Gain">{{'TEXT-MUSCLEGAIN' | translate}}</md-option>
+          <md-option value="Endurance">{{'TEXT-ENDURANCE' | translate}}</md-option>
+          <md-option value="Keto">{{'TEXT-KETO' | translate}}</md-option>
+          <md-option value="Indonesian">{{'TEXT-INDONESIAN' | translate}}</md-option>
+          <md-option value="Tunisian">{{'TEXT-TUNISIAN' | translate}}</md-option>
+          <md-option value="North African">{{'TEXT-NORTHAFRICAN' | translate}}</md-option>
+          <md-option value="Mediterranean">{{'TEXT-MEDITERRANEAN' | translate}}</md-option>
+          <md-option value="Morrocan">{{'TEXT-MORROCAN' | translate}}</md-option>
+          <md-option value="Vegan">{{'TEXT-VEGAN' | translate}}</md-option>
+          <md-option value="Vegetarian">{{'TEXT-VEGETARIAN' | translate}}</md-option>
+          <md-option value="Seafood">{{'TEXT-SEAFOOD' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-COURSE' | translate}}</label>
+        <md-select ng-model="course" placeholder="{{'TEXT-COURSE' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="Appetizer">{{'TEXT-APPETIZER' | translate}}</md-option>
+          <md-option value="Main Course">{{'TEXT-ENTREE' | translate}}</md-option>
+          <md-option value="Bread">{{'TEXT-BREAD' | translate}}</md-option>
+          <md-option value="Dessert">{{'TEXT-DESSERT' | translate}}</md-option>
+          <md-option value="Cocktail">{{'TEXT-COCKTAIL' | translate}}</md-option>
+          <md-option value="Non-Alcoholic Beverages">{{'TEXT-NONALCOHOLICBEVERAGES' | translate}}</md-option>
+          <md-option value="Cold Drings">{{'TEXT-COLDDRINKS' | translate}}</md-option>
+          <md-option value="Hot Drinks">{{'TEXT-HOTDRINKS' | translate}}</md-option>
+          <md-option value="Coffee">{{'TEXT-COFFEE' | translate}}</md-option>
+          <md-option value="B-Fast">{{'TEXT-B-FAST' | translate}}</md-option>
+          <md-option value="Brunch">{{'TEXT-BRUNCH' | translate}}</md-option>
+          <md-option value="Lunch">{{'TEXT-LUNCH' | translate}}</md-option>
+          <md-option value="Sandwich">{{'TEXT-SANDWICH' | translate}}</md-option>
+          <md-option value="Soup">{{'TEXT-SOUP' | translate}}</md-option>
+          <md-option value="Salad">{{'TEXT-SALAD' | translate}}</md-option>
+          <md-option value="Sides">{{'TEXT-SIDES' | translate}}</md-option>
+          <md-option value="Smoothies">{{'TEXT-SMOOTHIES' | translate}}</md-option>
+          <md-option value="Dinner">{{'TEXT-DINNER' | translate}}</md-option>
+          <md-option value="FingerFood">{{'TEXT-FINGERFOOD' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-SEASON' | translate}}</label>
+        <md-select ng-model="season" placeholder="{{'TEXT-SEASON' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="Monsoon">{{'TEXT-MONSOON' | translate}}</md-option>
+          <md-option value="Spring">{{'TEXT-SPRING' | translate}}</md-option>
+          <md-option value="Winter">{{'TEXT-WINTER' | translate}}</md-option>
+          <md-option value="Summer">{{'TEXT-SUMMER' | translate}}</md-option>
+          <md-option value="Fall">{{'TEXT-FALL' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-TIME' | translate}}</label>
+        <md-select ng-model="time" placeholder="{{'TEXT-TIME' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="BreakFast">{{'TEXT-B-FAST' | translate}}</md-option>
+          <md-option value="Lunch">{{'TEXT-LUNCH' | translate}}</md-option>
+          <md-option value="Brunch">{{'TEXT-BRUNCH' | translate}}</md-option>
+          <md-option value="Dinner">{{'TEXT-DINNER' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-DIFFICULTY' | translate}}</label>
+        <md-select ng-model="diff" placeholder="{{'TEXT-DIFFICULTY' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="Easy">{{'TEXT-EASY' | translate}}</md-option>
+          <md-option value="Medium">{{'TEXT-MEDIUM' | translate}}</md-option>
+          <md-option value="Hard">{{'TEXT-HARD' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+  </div> -->
+
+
+  <!----Recipe View Starts Here in block view-->
+  <div class="ui three stackable cards raised link" style="margin-top:20px;">
+    <div class="fluid card therecipesBoxBackColor"
+      ng-repeat="recipe in trueRecipes | filter:searchTerm | filter:customDropDwnFltr"
+      ng-show="recipe.showRecipe == true" ng-cloak>
+
+      <div class="image" ng-click="gotoRecipe(recipe.UUID,recipe.recipeName,recipe.id)">
+        <a class="ui red right corner label" ng-if="recipe.videoURL !=''">
+          <i class="video play icon"></i>
+        </a>
+        <img ng-src="{{recipe.recipeImageSrc}}" alt="{{recipe.recipeName}}">
+      </div>
+
+      <div class="content" ng-click="gotoRecipe(recipe.UUID,recipe.recipeName,recipe.id)">
+        <a href="">
+          <div class="header recipeN" id="recipeNameFont">{{recipe.recipeName}}</div>
+        </a><br>
+        <div class="meta" ng-show="settings.disp_RecipePage_tags">
+          <span class="tags theTagFont">{{'TEXT-TAGSWS' | translate}}:</span>
+          <span ng-repeat="tag in recipe.tags track by $index"
+            class="tag tag-pill thetagColor_SearchPage thetagFont_SearchPage" ng-cloak>{{tag}}</span>
+        </div>
+        <!-- <div class="description">
+        "The Description Goes Here"
+      </div> -->
+      </div>
+      <!--     <div class="extra content" ng-show="settings.disp_RecipePage_SocialShare">
+      <a href="" ng-click="gotoFacebook(recipe)"><span class="fa fa-facebook fa-1x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIcons" aria-hidden="true" ng-show="socialSettings.showFacebook"></span></a>
+      <a href="" ng-click="gotoTwitter(recipe)"><span class="fa fa-twitter fa-1x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIcons" aria-hidden="true" ng-show="socialSettings.showTwitter"></span></a>
+      <a href="" ng-click="gotoGoogle(recipe)"><span class="fa fa-google-plus fa-1x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIcons" aria-hidden="true" ng-show="socialSettings.showGoogle"></span></a>
+      <a href="" ng-click="gotoPinterest(recipe)"><span class="fa fa-pinterest fa-1x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIcons" aria-hidden="true" ng-show="socialSettings.showPinterest"></span></a>
+    </div> -->
+      <div class="extra content" ng-show="settings.disp_RecipePage_SocialShare">
+        <a href="" ng-click="checkSocialFacebook(recipe)"><span
+            class="fa fa-facebook fa-1x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIcons" aria-hidden="true"
+            ng-show="socialSettings.showFacebook"></span></a>
+        <a href="" ng-click="checkSocialTwitter(recipe)"><span
+            class="fa fa-twitter fa-1x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIcons" aria-hidden="true"
+            ng-show="socialSettings.showTwitter"></span></a>
+        <a href="" ng-click="checkSocialGoogle(recipe)"><span
+            class="fa fa-google-plus fa-1x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIcons" aria-hidden="true"
+            ng-show="socialSettings.showGoogle"></span></a>
+        <a href="" ng-click="checkSocialPinterest(recipe)"><span
+            class="fa fa-pinterest fa-1x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIcons" aria-hidden="true"
+            ng-show="socialSettings.showPinterest"></span></a>
+      </div>
+    </div>
+  </div>
+  <!-- <div ng-show="(trueRecipes | filter:searchTerm | filter:mainIngredient| filter:cuisine | filter:course | filter:season | filter:time | filter:diff ).length==0">No recipes found. Please broaden your search and try again.</div> -->
+  <!--Above line Commented by Tushar-->
+  <div ng-show="trueRecipes.length==0">No recipes found. Please broaden your search and try again.</div>
+  <!----Recipe View Starts Here in block view-->
+</div>
+<!---Block view Ends Here-->
+
+<!-- The List Layout starts here -->
+
+<!----List View Container Starts Here-->
+<div class="container-fluid" id="container-fluid-list" ng-if="showListLayout"> <!--Changes:- true=showListLayout -->
+  <!--Search Box in List View Starts Here-->
+  <div class="well" style="margin-top:20px;" id="theSearchBox" ng-show="settings.disp_RecipePage_SearchBox">
+    <input type="text" class="form-control" id="theSearchStrip" placeholder="{{'TEXT-ENTERSEARCH' | translate}}"
+      ng-model="searchTerm">
+  </div>
+  <!--Search Box in List View Ends Here-->
+
+<!-- Drop Down for List View Start Here-->
+  <div class="well" style="margin-top:20px;" id="theDropDown" ng-show="settings.disp_RecipePage_SearchDrop">
+    <div layout="row" layout-wrap layout-xs="column" layout-align="center" flex>
+      <md-input-container ng-repeat="category in tagsData" style="margin-right: 10px;" ng-show="{{'settings.category.DISP_'+category.Title}}" flex="noshrink" flex-md-="33"
+        flex-sm="33" flex="15" ng-cloak>
+        <label>{{'TEXT-'+category.Title | translate}}</label>
+        <md-select ng-model="drpDwnFiltrSearch[category.Title]" placeholder="{{ 'TEXT-'+category.Title| translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option ng-repeat="child in category['childs']" value={{child.Title}}>{{'TEXT-'+child.Title | translate}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+  </div>
+<!-- Drop Down for List View end Here-->
+
+
+  <!---DropDown For List View Starts Here-->
+  <!-- <div class="well" id="theDropDown" ng-show="settings.disp_RecipePage_SearchDrop">
+    <div layout="row" layout-wrap layout-xs="column" layout-align="center" flex>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-MAININGRE' | translate}}</label>
+        <md-select ng-model="mainIngredient" placeholder="{{'TEXT-MAININGRE' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="Shrimp">{{'TEXT-SHRIMP' | translate}}</md-option>
+          <md-option value="Chicken">{{'TEXT-CHICKEN' | translate}}</md-option>
+          <md-option value="Egg">{{'TEXT-EGG' | translate}}</md-option>
+          <md-option value="Fish">{{'TEXT-FISH' | translate}}</md-option>
+          <md-option value="Beef">{{'TEXT-BEEF' | translate}}</md-option>
+          <md-option value="Offal">{{'TEXT-OFFAL' | translate}}</md-option>
+          <md-option value="Duck">{{'TEXT-DUCK' | translate}}</md-option>
+          <md-option value="Pork">{{'TEXT-PORK' | translate}}</md-option>
+          <md-option value="Scallops">{{'TEXT-SCALLOPS' | translate}}</md-option>
+          <md-option value="Turkey">{{'TEXT-TURKEY' | translate}}</md-option>
+          <md-option value="Pasta">{{'TEXT-PASTA' | translate}}</md-option>
+          <md-option value="Rabbit">{{'TEXT-RABBIT' | translate}}</md-option>
+          <md-option value="Rice">{{'TEXT-RICE' | translate}}</md-option>
+          <md-option value="Lamb">{{'TEXT-LAMB' | translate}}</md-option>
+          <md-option value="Taco">{{'TEXT-TACO' | translate}}</md-option>
+          <md-option value="Salmon">{{'TEXT-SALMON' | translate}}</md-option>
+          <md-option value="Trout">{{'TEXT-TROUT' | translate}}</md-option>
+          <md-option value="Mackerel">{{'TEXT-MACKEREL' | translate}}</md-option>
+          <md-option value="Sardines">{{'TEXT-SARDINES' | translate}}</md-option>
+          <md-option value="Cod">{{'TEXT-COD' | translate}}</md-option>
+          <md-option value=”Pollock">{{'TEXT-POLLOCK' | translate}}</md-option>
+          <md-option value="Hake">{{'TEXT-HAKE' | translate}}</md-option>
+          <md-option value="GreyMullet">{{'TEXT-GREYMULLET' | translate}}</md-option>
+          <md-option value="Lobster">{{'TEXT-LOBSTER' | translate}}</md-option>
+          <md-option value="Mussels">{{'TEXT-MUSSELS' | translate}}</md-option>
+          <md-option value="Clams">{{'TEXT-CLAMS' | translate}}</md-option>
+          <md-option value="Tuna">{{'TEXT-TUNA' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-CUISINE' | translate}}</label>
+        <md-select ng-model="cuisine" placeholder="{{'TEXT-CUISINE' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="American">{{'TEXT-AMERICAN' | translate}}</md-option>
+          <md-option value="Japanese">{{'TEXT-JAPANESE' | translate}}</md-option>
+          <md-option value="Indian">{{'TEXT-INDIAN' | translate}}</md-option>
+          <md-option value="Chinese">{{'TEXT-CHINESE' | translate}}</md-option>
+          <md-option value="African">{{'TEXT-AFRICAN' | translate}}</md-option>
+          <md-option value="Asian">{{'TEXT-ASIAN' | translate}}</md-option>
+          <md-option value="Middle Eastern">{{'TEXT-MIDDLEEASTERN' | translate}}</md-option>
+          <md-option value="German">{{'TEXT-GERMAN' | translate}}</md-option>
+          <md-option value="Greek">{{'TEXT-GREEK' | translate}}</md-option>
+          <md-option value="Italian">{{'TEXT-ITALIAN' | translate}}</md-option>
+          <md-option value="Mexican">{{'TEXT-MEXICAN' | translate}}</md-option>
+          <md-option value="Thai">{{'TEXT-THAI' | translate}}</md-option>
+          <md-option value="Carribean">{{'TEXT-CARRIBEAN' | translate}}</md-option>
+          <md-option value="English-Scottish">{{'TEXT-ENGLISH-SCOTTISH' | translate}}</md-option>
+          <md-option value="French">{{'TEXT-FRENCH' | translate}}</md-option>
+          <md-option value="Gluten Free">{{'TEXT-GLUTENFREE' | translate}}</md-option>
+          <md-option value="Fat Loss">{{'TEXT-FATLOSS' | translate}}</md-option>
+          <md-option value="Muscle Gain">{{'TEXT-MUSCLEGAIN' | translate}}</md-option>
+          <md-option value="Endurance">{{'TEXT-ENDURANCE' | translate}}</md-option>
+          <md-option value="Keto">{{'TEXT-KETO' | translate}}</md-option>
+          <md-option value="Indonesian">{{'TEXT-INDONESIAN' | translate}}</md-option>
+          <md-option value="Tunisian">{{'TEXT-TUNISIAN' | translate}}</md-option>
+          <md-option value="North African">{{'TEXT-NORTHAFRICAN' | translate}}</md-option>
+          <md-option value="Mediterranean">{{'TEXT-MEDITERRANEAN' | translate}}</md-option>
+          <md-option value="Morrocan">{{'TEXT-MORROCAN' | translate}}</md-option>
+          <md-option value="Vegan">{{'TEXT-VEGAN' | translate}}</md-option>
+          <md-option value="Vegetarian">{{'TEXT-VEGETARIAN' | translate}}</md-option>
+          <md-option value="Seafood">{{'TEXT-SEAFOOD' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-COURSE' | translate}}</label>
+        <md-select ng-model="course" placeholder="{{'TEXT-COURSE' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="Appetizer">{{'TEXT-APPETIZER' | translate}}</md-option>
+          <md-option value="Main Course">{{'TEXT-ENTREE' | translate}}</md-option>
+          <md-option value="Bread">{{'TEXT-BREAD' | translate}}</md-option>
+          <md-option value="Dessert">{{'TEXT-DESSERT' | translate}}</md-option>
+          <md-option value="Cocktail">{{'TEXT-COCKTAIL' | translate}}</md-option>
+          <md-option value="Non-Alcoholic Beverages">{{'TEXT-NONALCOHOLICBEVERAGES' | translate}}</md-option>
+          <md-option value="Cold Drings">{{'TEXT-COLDDRINKS' | translate}}</md-option>
+          <md-option value="Hot Drinks">{{'TEXT-HOTDRINKS' | translate}}</md-option>
+          <md-option value="Coffee">{{'TEXT-COFFEE' | translate}}</md-option>
+          <md-option value="B-Fast">{{'TEXT-B-FAST' | translate}}</md-option>
+          <md-option value="Brunch">{{'TEXT-BRUNCH' | translate}}</md-option>
+          <md-option value="Lunch">{{'TEXT-LUNCH' | translate}}</md-option>
+          <md-option value="Sandwich">{{'TEXT-SANDWICH' | translate}}</md-option>
+          <md-option value="Soup">{{'TEXT-SOUP' | translate}}</md-option>
+          <md-option value="Salad">{{'TEXT-SALAD' | translate}}</md-option>
+          <md-option value="Sides">{{'TEXT-SIDES' | translate}}</md-option>
+          <md-option value="Smoothies">{{'TEXT-SMOOTHIES' | translate}}</md-option>
+          <md-option value="Dinner">{{'TEXT-DINNER' | translate}}</md-option>
+          <md-option value="FingerFood">{{'TEXT-FINGERFOOD' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-SEASON' | translate}}</label>
+        <md-select ng-model="season" placeholder="{{'TEXT-SEASON' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="Monsoon">{{'TEXT-MONSOON' | translate}}</md-option>
+          <md-option value="Spring">{{'TEXT-SPRING' | translate}}</md-option>
+          <md-option value="Winter">{{'TEXT-WINTER' | translate}}</md-option>
+          <md-option value="Summer">{{'TEXT-SUMMER' | translate}}</md-option>
+          <md-option value="Fall">{{'TEXT-FALL' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-TIME' | translate}}</label>
+        <md-select ng-model="time" placeholder="{{'TEXT-TIME' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="BreakFast">{{'TEXT-B-FAST' | translate}}</md-option>
+          <md-option value="Lunch">{{'TEXT-LUNCH' | translate}}</md-option>
+          <md-option value="Brunch">{{'TEXT-BRUNCH' | translate}}</md-option>
+          <md-option value="Dinner">{{'TEXT-DINNER' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container style="margin-right: 10px;" flex="noshrink" flex-md-="33" flex-sm="33" flex="15">
+        <label>{{'TEXT-DIFFICULTY' | translate}}</label>
+        <md-select ng-model="diff" placeholder="{{'TEXT-DIFFICULTY' | translate}}">
+          <md-option value="">{{'TEXT-NONE' | translate}}</md-option>
+          <md-option value="Easy">{{'TEXT-EASY' | translate}}</md-option>
+          <md-option value="Medium">{{'TEXT-MEDIUM' | translate}}</md-option>
+          <md-option value="Hard">{{'TEXT-HARD' | translate}}</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+  </div> -->
+  <!---DropDown For List View Ends Here-->
+
+
+
+  <!--Recipe view in list view starts here-->
+  <div class="ui divided items" style="margin-top:20px;">
+    <div class="item"
+      ng-repeat="recipe in trueRecipes | filter:searchTerm | filter:customDropDwnFltr "
+      ng-if="recipe.showRecipe == true" ng-cloak>
+      <div class="image" ng-click="gotoRecipe(recipe.UUID,recipe.recipeName,recipe.id)">
+        <a class="ui red right corner label" ng-if="recipe.videoURL !=''">
+          <i class="video play icon"></i>
+        </a>
+        <img ng-src="{{recipe.recipeImageSrc}}" alt="{{recipe.recipeName}}">
+      </div>
+
+      <div class="content">
+        <div style="display:table;width:100%;">
+          <a href="" style="display:table-cell;vertical-align:top;"
+            ng-click="gotoRecipe(recipe.UUID,recipe.recipeName,recipe.id)">
+            <div class="header" id="recipeNameFont">{{recipe.recipeName}}</div>
+          </a>
+
+          <a href="" style="display:table-cell;vertical-align:top;white-space:nowrap;"
+            ng-click="gotoRecipe(recipe.UUID,recipe.recipeName,recipe.id)">
+            <div class="mini ui right floated button listbutton">
+              <p class="listbuttonfont">{{'TEXT-VIEWRECIPE' | translate}}</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="description">
+          <p ng-bind-html="recipe.shortDescription"></p>
+        </div>
+        <div class="extra" ng-show="settings.disp_RecipePage_tags">
+          <span class="tags theTagFont">{{'TEXT-TAGSWS' | translate}}:</span>
+          <span ng-repeat="tag in recipe.tags track by $index"
+            class="tag tag-pill thetagColor_SearchPage thetagFont_SearchPage" ng-cloak>{{tag}}</span>
+        </div>
+        <!--   <div class="extra" ng-show="settings.disp_RecipePage_SocialShare">
+        <a href="" ng-click="gotoFacebook(recipe)"><span class="fa fa-facebook fa-1x socialIcons" aria-hidden="true" ng-show="socialSettings.showFacebook"></span></a>
+      <a href="" ng-click="gotoTwitter(recipe)"><span class="fa fa-twitter fa-1x socialIcons" aria-hidden="true" ng-show="socialSettings.showTwitter"></span></a>
+      <a href="" ng-click="gotoGoogle(recipe)"><span class="fa fa-google-plus fa-1x socialIcons" aria-hidden="true" ng-show="socialSettings.showGoogle"></span></a>
+      <a href="" ng-click="gotoPinterest(recipe)"><span class="fa fa-pinterest fa-1x  socialIcons" aria-hidden="true" ng-show="socialSettings.showPinterest"></span></a>
+      </div> -->
+        <div class="extra" ng-show="settings.disp_RecipePage_SocialShare">
+          <a href="" ng-click="checkSocialFacebook(recipe)"><span class="fa fa-facebook fa-1x socialIcons"
+              aria-hidden="true" ng-show="socialSettings.showFacebook"></span></a>
+          <a href="" ng-click="checkSocialTwitter(recipe)"><span class="fa fa-twitter fa-1x socialIcons"
+              aria-hidden="true" ng-show="socialSettings.showTwitter"></span></a>
+          <a href="" ng-click="checkSocialGoogle(recipe)"><span class="fa fa-google-plus fa-1x socialIcons"
+              aria-hidden="true" ng-show="socialSettings.showGoogle"></span></a>
+          <a href="" ng-click="checkSocialPinterest(recipe)"><span class="fa fa-pinterest fa-1x  socialIcons"
+              aria-hidden="true" ng-show="socialSettings.showPinterest"></span></a>
+        </div>
+        <!--  <div class="extra">
+        <a href="" ng-click="gotoRecipe(recipe.UUID,recipe.recipeName,recipe.id)"><div class="ui right floated button listbutton">
+          {{'TEXT-VIEWRECIPE' | translate}}
+        </div></a>
+      </div> -->
+      </div>
+      <!--    <div class="extra">
+        <a href="" ng-click="gotoRecipe(recipe.UUID,recipe.recipeName,recipe.id)"><div class="ui right floated button listbutton">
+          {{'TEXT-VIEWRECIPE' | translate}}
+        </div></a>
+      </div> -->
+      <div class="ui divider"></div>
+    </div>
+    <div class="ui divider"></div>
+  </div>
+  <div ng-show="trueRecipes.length==0">No recipes found. Please broaden your search and try again.</div>
+  <!--Recipe view in list view ends here-->
+</div>

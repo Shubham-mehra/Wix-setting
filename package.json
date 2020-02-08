@@ -1,0 +1,34 @@
+{
+  "name": "wix-recipe-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "authentication.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "google-translate-api": "^2.3.0",
+    "mongodb": "^3.3.4",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.7.0",
+    "node-uuid": "^1.4.7",
+    "nodemailer": "^4.0.1",
+    "openapi-node": "^3.0.3",
+    "prerender-node": "^2.5.0",
+    "request": "^2.75.0",
+    "sendgrid": "^5.1.0",
+    "tingle.js": "^0.13.2",
+    "wix": "^0.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://rajibgaru@bitbucket.org/rajibgaru/wix-recipe-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/rajibgaru/wix-recipe-app#readme"
+}

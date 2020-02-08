@@ -1,0 +1,177 @@
+<ng-form  name="createTagForm" novalidate >
+    <div class="row">
+    <div class="col-md-12" >
+        <div class="card text-center" style="margin-bottom:-20px;border-style:none;">
+            <div class="card-header col-md-12" style="height:36px;padding:0px" >
+              <div  class="col-md-6" id="AddtagsForm" >
+    <a href="" ng-click="createTag.checkBackButton()"><button type="button" id="backButton" class="btn btn-default btn-lg pull-left">{{'BUTTON-BACK' | translate}}</button></a>
+                <h1 id="AddnewheaderStyle" >
+                      Add New Tags
+                  </h1>
+              </div>
+              <div  class="col-md-6" style="height:49px;background-color: #23263c;">
+                  <div class="form-group has-feedback has-search">
+                      <span class="glyphicon glyphicon-search form-control-feedback" style="margin-top: 0px;margin-left: 3px;"></span>
+                      <input type="text" class="form-control" id="Searchbox" placeholder="Search tags...." ng-model="createTag.TagSearch">
+                  </div>
+              </div>
+               
+            </div>
+          
+            <div class="card-body col-md-12" style="margin-left: -21px;">
+                <div class="col-md-6" style="text-align: center;margin-left: -9px;margin-top: 50px;">
+                    <div class="AddNewTagCard" style="width:100%;padding:19px">
+                        <div  class="form-group" style="margin-top:2rem;">
+                            <!-- <label class="pull-left"> Choose the catagory to add..</label>
+                            <br> -->
+                            <!-- <select id="choosetags" name="tagParent" class="form-control" ng-model="createTag.SelectedCategory" required>
+                                <option value="">Choose...</option>
+                                <option ng-repeat="option in createTag.categoryOptions" value="{{option}}">{{option.Title}}</option>
+                            </select> -->
+                            <md-select  name="tagParent" style="text-align: left; margin-top: 69px;" placeholder="Choose category" class="" ng-model="createTag.SelectedCategory" required>
+                                <md-option value="" ng-click="createTag.setOrderBy();">None</md-option>
+                                <md-option ng-repeat="option in createTag.categoryOptions"  ng-click="createTag.setOrderBy();"  value="{{option}}">{{option.Title}}</md-option>
+                                <!-- test ng-show="{{'createTag.settings.category.DISP_'+(option.Title).toUpperCase()}}" -->
+                            </md-select>                         
+                            <span  ng-show="createTagForm.tagParent.$error.required && createTagForm.tagParent.$dirty" style="color: red;">!..Please select a category to proceed</span>
+                            </div>
+                            <br><br>
+                            <!-- <div class="form-group" style="margin-left: 13px;"><br><br>
+                              <label  class="pull-left" for="tag">Tag Name:</label>
+                              <input class="form-control" id="choosetags" name="tagValue" ng-model="createTag.tagValue" placeholder="Tags.." ng-maxlength="50" required>  
+                              <span ng-show="createTagForm.tagValue.$error.required && createTagForm.tagValue.$dirty" style="color: red;">!..Please enter a Tag Name</span>
+                            </div> -->
+                            <md-input-container  style="width: 100%;text-align: left;">
+                                <label>Tag name</label>
+                                <input required name="tagValue" ng-disabled="createTag.showUpgradeButtonAndUpgradeDesc" ng-model="createTag.tagValue">
+                                <span ng-show="createTagForm.tagValue.$error.required && createTagForm.tagValue.$dirty" style="color: red;">
+                                  <div style="font-size: 10px;">Tag name is a required field.*</div>
+                                </span>
+                                <span ng-show="createTag.tagExist" style="color: red;">
+                                    <div style="font-size: 10px;">Tag Already Exist.*</div>
+                                </span>
+                              </md-input-container>
+                            <br><br><br><br>
+                            <!-- <button style="margin-left:13px;" type="button" ng-disabled="createTagForm.tagValue.$error.required || createTagForm.tagParent.$error.required ||createTag.adBtnLdr.adding || createTag.adBtnLdr.added"  ng-click="createTag.saveTagData();" class="btn btn-success btn-lg btn-block ">
+                                <span ng-show="createTag.adBtnLdr.add">
+                                    Add new
+                                </span>
+                                <span ng-show="createTag.adBtnLdr.adding">
+                                  <i class="fa fa-spinner fa-spin" style="font-size:24px"></i> Adding...
+                                </span>
+                                 <span ng-show="createTag.adBtnLdr.added">
+                                  <i class="fa fa-check-square-o"></i> Added
+                                </span>
+
+
+                                
+                            
+                            </button> -->
+                            <md-button id="Addmebutton" class="md-raised" ng-show="createTag.hideAddnewTagButton" ng-disabled="createTagForm.tagValue.$error.required || createTagForm.tagParent.$error.required ||createTag.adBtnLdr.adding || createTag.adBtnLdr.added ||createTag.SelectedCategory==''||!createTag.addBtnEnable"  ng-click="createTag.AddTagPaidUser();">
+                                <span ng-show="createTag.adBtnLdr.add">
+                                    Add new
+                                </span>
+                                <span ng-show="createTag.adBtnLdr.adding">
+                                  <i class="fa fa-spinner fa-spin" style="font-size:24px"></i> Adding...
+                                </span>
+                                 <span ng-show="createTag.adBtnLdr.added">
+                                  <i class="fa fa-check-square-o"></i> Added
+                                </span>
+                            </md-button>
+
+                           <!-- upgrade Button For non Prime User -->
+                           <md-button id="upgradeBtn" class="md-raised" ng-show="createTag.showUpgradeButtonAndUpgradeDesc" ng-click="createTag.Openbillingpage();">
+                                <span ng-show="createTag.adBtnLdr.add">
+                                 Upgrade
+                                </span>
+                            </md-button>
+                            <span ng-show="createTag.showUpgradeButtonAndUpgradeDesc" style="color: red;">
+                                <div style="font-size: 10px;">You Have to Upgrade Frist for More Tag.*</div>
+                            </span>
+                             <!-- upgrade Button For non Prime User -->
+                      
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-left: 9px">
+                    <!-- <div class="responsive-table">
+                        <table id="sortable">
+                            <tr class="ui-state-default">
+                                <th>Drag Row</th><th>Id</th><th>Fruit</th><th>Quantity</th><th>Image</th>
+                            </tr>  
+                            
+                            
+                            
+                          
+                          <tr>
+                            <td><i class="fa fa-bars"></i></td>
+                            <td data-id="1">1</td>
+                            <td>Apple</td>
+                            <td>5</td>
+                            <td><img src="" alt="noImage" width="30px" height="25px"></td>
+                          </tr>
+                          <tr>
+                            <td><i class="fa fa-bars"></i></td>
+                            <td data-id="2">2</td>
+                            <td>Orange</td>
+                            <td>8</td>
+                            <td><img src="" alt="noImage" width="30px" height="25px"></td>
+                          </tr>
+                          <tr>
+                            <td><i class="fa fa-bars" ></i></td>
+                            <td data-role="test" data-id="3">3</td>
+                            <td>Banana</td>
+                            <td>3</td>
+                            <td><img src="" alt="noImage" width="30px" height="25px"></td>
+                          </tr>
+                        </table>
+                      </div> -->
+                    <table  class="table" id="scrollable">
+                            <thead class="thead-dark" >
+                            <th style="text-align: center;">Tag Title</th>
+                            <th style="text-align: center;">Parent/Category</th>
+                            <th style="text-align: center;">Operations</th>
+                            </thead> 
+                            <tbody >
+                            <tr ng-repeat="tag in createTag.tagsData |orderBy:createTag.tagsOrderBy:false |filter:createTag.basedoncategorySelection | filter:{Title:createTag.TagSearch}" x-lvl-draggable="true" on-drop="createTag.dropped(dragged,dropped);" tag="tag" is-category-selected='createTag.SelectedCategory'>
+                               
+                                <td ng-show="tag.mode=='view'" ><span id="spanBorder" ng-bind="tag.Title"></span></td>
+                                <td id="inputTdStyle" ng-show="tag.mode=='edit'"><input type="text" ng-model="tag.Title"></td>
+                                <td ng-show="tag.mode=='view'" ><span id="spanBorder" ng-bind="tag.Parent.Title"></span></td>
+                                <td ng-show="tag.mode=='edit'" >
+                                    <select ng-options="option.Title for option in createTag.categoryOptions track by option._id"
+                                    ng-model="tag.Parent"
+                                    ></select>
+                                </td>
+                                <td >
+                                    <span style="width:100%" id="spanBorderIcon">
+                                        <span ng-show="tag.mode=='view'">
+                                            <i id="EditDeleteBtn" title="click to Edit" class="fa fa-pencil-square-o" aria-hidden="true" ng-click="createTag.editATag(tag)"></i>
+                                        </span>
+                                        <span ng-show="tag.mode=='edit'&&createTag.editBtnLdr.edit">
+                                            <i  id="EditDeleteBtn" class="fa fa-check" title="click to save current changes" aria-hidden="true" ng-click="createTag.tagEditValueRestriction(tag)"></i>
+                                            <i  id="EditDeleteBtn" class="fa fa-times" title="click to discard changes" aria-hidden="true" ng-click="createTag.cancelEditedTag(tag)"></i>
+                                        </span>
+                                        <span ng-show="tag.mode=='edit'&&createTag.editBtnLdr.editing">
+                                            <i  class="fa fa-spinner fa-spin" title="saving your changes" aria-hidden="true" ></i>
+                                        </span>
+                                        <span>
+                                                <i id="EditDeleteBtn" title="click to Delete" class="fa fa-trash" aria-hidden="true" ng-click="createTag.confirmDeletion(tag._id,tag.Title)"></i> 
+                                            </span>
+                                    </span>      
+                                </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+            <div class="card-footer text-muted" >
+            &nbsp;
+            </div>
+        </div>
+    </div>
+    
+    
+    </div> 
+    </ng-form>
+    <!-- <button type="button" ng-click="createTag.test()">Test</button> -->
+    <!-- <button type="button" ng-click="createTag.testmongodb()" >click</button> -->

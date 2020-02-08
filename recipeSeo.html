@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html >
+<head>
+<base href="/"></base>
+<meta name="fragment" content="!">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale = 1">
+
+</head>
+<body ng-app="recipeApp" ng-controller="recipeSeoCtrl">
+
+
+
+<!-- <div class="spinner" loading></div> -->
+<!-- <wix-control name="UI.preloader" loading></wix-control> -->
+<button type="button">Back</button><br>
+
+<h1>{{recipes[index].recipeName}}</h1><br>
+
+
+<img src="{{recipes[index].recipeImageSrc}}" style="width:50px;height:50px;" alt="{{recipes[index].recipeName}}"><br>
+
+   
+<p>{{recipes[index].shortDescription}}</p><br>
+        
+
+<p>Serv Size : {{recipes[index].servingSize}}</p>
+<p>Prep Time : {{recipes[index].prepTime}}</p>
+<p>Total Time : {{recipes[index].totalTime}}</p><br>
+
+<span >Tags : </span>
+<span ng-repeat="tag in recipes[index].tags track by $index" >{{tag}}  </span><br>
+
+<h2>Nutrition Facts</h2><br>
+
+<p>Calories : {{recipes[index].nutrition.calories}}</p>
+<p>Fat : {{recipes[index].nutrition.fat}}</p>
+<p>Carbohydrate : {{recipes[index].nutrition.carbo}}</p>
+<p>Protien : {{recipes[index].nutrition.protien}}</p>
+<p>Disclaimer : {{recipes[index].nutrition.disclaimer}}</p>
+<br>
+
+<h2>Ingredients</h2><br>
+   
+
+<div  ng-repeat="ingre in recipes[index].ingredients track by $index" >
+    <h2>{{ingre.dish}}</h2>
+    <ul>
+    <li ng-repeat="ingreEle in ingre.ingredient track by $index">
+       {{ingreEle}}
+    </li>
+    </ul>
+</div><br>
+
+<h2>Directions</h2><br>
+    <ul>
+    <li ng-repeat="direc in recipes[index].directions track by $index">
+       {{direc.step}} : {{direc.direction}}
+    </li>
+    </ul>
+<br>  
+
+<h2>Expert Tips</h2><br>
+    <ul>
+    <li ng-repeat="expertT in recipes[index].expertTips track by $index">
+       {{expertT}}
+    </li>
+    </ul>
+<br>  
+ 
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-with-addons.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.js"></script>
+<script src="//static.parastorage.com/services/js-sdk/1.69.0/js/wix.min.js"></script>
+<script src="//static.parastorage.com/services/editor-ui-lib/1.23.0/lib/editor-ui-lib-angular.min.js"></script>
+
+<script src="https://radiant-island-16688.herokuapp.com/controllers/controller_recipeSeo.js"></script>
+
+</body>
+</html>

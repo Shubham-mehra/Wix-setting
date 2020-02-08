@@ -1,0 +1,219 @@
+<div class="container-fluid" id="recipe-container-fluid">
+<!-- <div class="row" ><button type="button" ng-click="gotoHome()" class="btn panel-title thebackButtonColor backButtonFont btn-sm pull-left">{{'BUTTON-BACK' | translate}}</button></div><br> -->
+<!-- <div class="row"><button type="button" ng-click="gotoHome()" class="btn panel-title thebackButtonColor backButtonFont btn-sm pull-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></button></div><br> -->
+<div class="row" id="hideHomeButton" ><a href="" ng-click="gotoHome()" class="recipeNameFontDet"><i class="fa fa-1x fa-chevron-left pull-left backStyle" aria-hidden="true"></i></a></div><br>
+<div class="row" style="text-align:center;">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 recipeNameFontDet"><h2>{{recipes[index].recipeName}}</h2>
+  
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="printButton" >
+  <!-- print button  -->
+  <span  style="float: right;" >
+   <i class="fa fa-print" data-toggle="tooltip" title="Print"  ng-click="printToCart()" target="_blank"></i>
+ </span>
+ 
+
+<!-- print button -->
+</div></div>
+<md-divider style="margin:4% 0 0% 0;"></md-divider>
+<div class= "row row-eq-height" style="margin:4% 0 4% 0;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div style="width:100%;"><img src="{{recipes[index].recipeImageSrc}}" id="recipeImage" style="margin:auto" class="img-responsive btn-block" alt="{{recipes[index].recipeName}}">
+      </div>
+    </div>
+</div>
+<md-divider></md-divider>
+<div class= "row" style="margin:4% 0 4% 0;">   
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div style="width:100%;" class="shortDescription theDescription"><p style="margin:0% 0 4% 0;">{{recipes[index].shortDescription}}</p>
+        </div>
+      </div>
+</div>
+<div ng-show="settings.disp_RecipeDetail_SocialShare" ><md-divider></md-divider> </div>
+<div id="socialSharebutton" class= "row" style="margin:4% 0 4% 0;" ng-show="settings.disp_RecipeDetail_SocialShare">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+     <div class="row" >
+    <a href="" ng-click="gotoFacebook(recipes[index])"><span class="fa fa-facebook fa-2x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIconsDet1" aria-hidden="true" ng-show="socialSettings.showFacebook"></span></a>
+    <a href="" ng-click="gotoTwitter(recipes[index])"><span class="fa fa-twitter fa-2x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIconsDet1" aria-hidden="true" ng-show="socialSettings.showTwitter"></span></a>
+    <a href="" ng-click="gotoGoogle(recipes[index])"><span class="fa fa-google-plus fa-2x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIconsDet1" aria-hidden="true" ng-show="socialSettings.showGoogle"></span></a>
+    <a href="" ng-click="gotoPinterest(recipes[index])"><span class="fa fa-pinterest fa-2x col-lg-3 col-md-3 col-sm-3 col-xs-3 socialIconsDet1" aria-hidden="true" ng-show="socialSettings.showPinterest"></span></a>
+    </div><!--<div class="row">-->
+    </div>
+    </div>
+  <md-divider></md-divider>
+   <!-- <div class= "row">  -->
+ <!--    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "> -->
+      <div class="row" style="margin:4% 0 4% 0;">
+      <button type="button" class="btn col-lg-12 col-md-12 col-sm-12 col-xs-12 theSPTPanel theservSizeColor SPTB thePanels" style="white-space: normal;">{{'TEXT-SERVSIZEWS' | translate}} <span class="badge badgeBackColor">{{recipes[index].servingSize}}</span></button>
+      <button type="button" class="btn  col-lg-12 col-md-12 col-sm-12 col-xs-12 theSPTPanel theservSizeColor SPTB thePanels" style="white-space: normal;">{{'TEXT-PREPTIMEWS' | translate}} <span class="badge badgeBackColor">{{recipes[index].prepTime}}</span></button>
+      <button type="button" class="btn col-lg-12 col-md-12 col-sm-12 col-xs-12 theSPTPanel theservSizeColor SPTB thePanels" style="white-space: normal;">{{'TEXT-TOTALTIMEWS' | translate}} <span class="badge badgeBackColor">{{recipes[index].totalTime}}</span></button>
+      </div><!--<div class="row">-->
+<!--     </div> -->
+<!-- </div> -->
+<div ng-show="settings.disp_RecipeDetail_Tags"><md-divider></md-divider></div>
+  <div class="row tagMargin" ng-show="settings.disp_RecipeDetail_Tags" style="margin:4% 0 4% 0;">
+  <span class= "tags theTagRecipeFont">{{'TEXT-TAGSWS' | translate}} : </span>
+  <span ng-repeat="tag in recipes[index].tags track by $index" class="tag tag-pill thetagColorDetail thetagFontDetail theTag">{{tag}}</span>
+  </div>
+<!-- <div ng-if="recipes[index].videoURL != ''"><md-divider></md-divider></div>
+
+<div ng-if="recipes[index].videoURL != ''">
+  <div class="embed-responsive embed-responsive-16by9" style="margin:4% 0 4% 0;">
+  <iframe class="embed-responsive-item" ng-src="{{trustedVideo}}" allowfullscreen controls></iframe>
+  </div>
+</div> -->
+
+<md-divider style="margin:0 0 4% 0;"></md-divider>
+
+<div class= "row row-eq-height">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+      <div class="panel" style="margin-top: 2%;">
+    <div class="panel-heading thePanelColor">
+      <h2 class="panel-title PanelNameFont">
+        <a data-toggle="" data-parent="#accordion" href="" data-target= "#collapse1">
+        {{'TEXT-INGREDIENTS' | translate}}<!-- <span class="glyphicon glyphicon-chevron-down"></span> --></a>
+      </h2>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div id="recipe-section-2" >
+
+<div class="row" role="toolbar" aria-label="Toolbar with button groups">
+
+  <div  ng-repeat="ingre in recipes[index].ingredients track by $index" class="btn-group-vertical col-lg-12 col-md-12 col-sm-12 col-xs-12" role="group" aria-label="First group"  style="margin-top:10px;" >
+
+    <button type="button" class="btn btn-secondary btn-lg .btn-lgo componentPanelNameFont theComponentPanelColor ingredients thePanels" style="word-wrap:break-word;word-break: break-word;font-weight:bold;">{{ingre.dish}}</button>
+    <button ng-repeat="ingreEle in ingre.ingredient track by $index" type="button" class="btn btn-secondary ingredients ingreBackColor ingreFontandColor thePanelsCursor theDescription" style="text-align:left;word-wrap:break-word;word-break: break-word;margin-top: 3px;">{{ingreEle}}</button>
+     </div>
+    </div>   
+    </div><!--<div class="panel-body">-->
+    </div>
+  </div><!-- Panel -->
+
+    </div>
+    </div>
+   <div class= "row" style="margin-top: 4%;"> 
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <div class="panel">
+    <div class="panel-heading thePanelColor">
+      <h2 class="panel-title PanelNameFont">
+        <a data-toggle="" data-parent="#accordion" href="" data-target= "#collapse2">
+        {{'TEXT-DIRECTIONS' | translate}}<!-- <span class="glyphicon glyphicon-chevron-down"></span> --></a>
+      </h2>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse in">
+    <div class="panel-body direcBackColor" >
+   <table class="table table-hover">
+        <tbody >
+          <tr class="firstdirec" ng-repeat = "direc in recipes[index].directions track by $index">
+            <th scope="row" class="direcFontandColor"><!-- <i class="fa fa-check-square-o fa-2x" aria-hidden="true"></i> --><span class="steps direcFontandColor theDescription"> {{direc.step}} : </span><span class="direcFontandColor">{{direc.direction}}</span></th>
+            <!-- <td style="text-align:left;word-break:break-word;"><span class="steps">{{direc.step}} : </span><span class="theRecipeDetFontCol">{{direc.direction}}</span></td> -->
+          </tr>
+        </tbody>
+      </table>
+   </div>
+      </div>
+    </div>
+  <div class="panel" ng-show="settings.disp_RecipeDetail_ExpertTips">
+    <div class="panel-heading thePanelColor">
+      <h2 class="panel-title PanelNameFont">
+        <a data-toggle="" data-parent="#accordion" href="" data-target= "#collapse3">
+        {{'TEXT-TIPS' | translate}}<!-- <span class="glyphicon glyphicon-chevron-down"></span> --></a>
+      </h2>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse in">
+        <div class="panel-body expertBackColor" >
+        <table class="table table-hover">
+        <tbody >
+          <tr class="firstdirec" ng-repeat = "expertT in recipes[index].expertTips track by $index">
+            <th scope="row" class="expertFontandColor"><!-- <i class="fa fa-lightbulb-o fa-2x " aria-hidden="true"></i> --><span class="expertFontandColor theDescription"> {{expertT}}</span></th>
+            <!-- <td style="text-align:left;word-break:break-word;"><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i></td> -->
+          </tr>
+          </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+<div class= "row" > 
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div ng-show="settings.disp_RecipeDetail_nutrition">
+    <div class="panel">
+    <div class="panel-heading thePanelColor">
+      <h2 class="panel-title PanelNameFont">
+        <a data-toggle="" data-parent="#accordion" href="" data-target= "#collapse1">
+        {{'TEXT-NUTRIFACTS' | translate}}<!-- <span class="glyphicon glyphicon-chevron-down"></span> --></a>
+      </h2>
+    </div>
+<div class="panel-body theNUTSectionBackColor">
+<section class="performance-facts">
+  <header class="theNUTServingSize">
+    <p style="font-weight: bold;">{{'TEXT-AMOUNT' | translate}} ( {{recipes[index].servingSize}} {{'TEXT-TOTAL' | translate}} )</p>
+  </header>
+  <div class="ui divider"></div>
+  <table class="performance-facts__table">
+    <thead class="theNUTAmount">
+    <!--   <tr style="border-bottom: 1px solid #ddd">
+        <th colspan="3">
+          {{'TEXT-AMOUNTPSERVING' | translate}}
+        </th>
+      </tr> -->
+    </thead>
+    <tbody>
+      <tr class="theNUTCalories">
+        <th colspan="2" >
+          <b>{{'TEXT-CALORIES' | translate}}</b>
+          {{recipes[index].nutrition.calories}}
+        </th>
+        <td></td>
+      </tr>
+      <tr class="theNUTFat">
+        <th colspan="2">
+          <b>{{'TEXT-FAT' | translate}}</b>
+          {{recipes[index].nutrition.fat}}
+        </th>
+        <td>
+          <b></b>
+        </td>
+      </tr>
+      <tr class="theNUTCarbo">
+        <th colspan="2" >
+          <b>{{'TEXT-CARBO' | translate}}</b>
+          {{recipes[index].nutrition.carbohydrate}}
+        </th>
+        <td>
+          <b></b>
+        </td>
+      </tr>
+      <tr class="theNUTProtien">
+        <th colspan="2">
+          <b>{{'TEXT-PROTIEN' | translate}}</b>
+          {{recipes[index].nutrition.protien}}
+        </th>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+   <div class="ui divider"></div>
+  <p class="theNUTDisclaimer" style="text-align:left;word-wrap:break-word;word-break: break-word;">{{recipes[index].nutrition.disclaimer}}</p>
+</section>
+</div>
+</div><!-- Panel -->
+</div>
+</div>
+</div>
+<!-- <div ng-if="recipes[index].videoURL != ''"><md-divider></md-divider></div> -->
+
+<div ng-if="recipes[index].videoURL != ''">
+  <div class="embed-responsive embed-responsive-16by9" style="margin:0 0 4% 0;">
+  <iframe class="embed-responsive-item" ng-src="{{trustedVideo}}" allowfullscreen controls></iframe>
+  </div>
+</div>
+
+<md-divider></md-divider>
+
+</div><!-- Container Div -->

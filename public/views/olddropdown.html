@@ -1,0 +1,555 @@
+ <div class="row setup-content" id="step-2" style="margin-top:30px;margin-bottom:30px;">
+            <div class="col-md-offset-2" style="width:75%;">
+              <div class="col-md-12">
+      <!--<h3>Intro</h3>-->
+          <p class="bigheadings">Cuisine<p>
+              <hr class="ruler">          
+           
+              
+                <div class="form-group">
+                 
+      
+                  <select class="ui fluid search dropdown form-control" name="tags" id="tagss" multiple="" size="5" ng-model="recipes[index].tags" ng-maxlength="6" required>
+                  <option value="">{{'TEXT-ShortTAGS' | translate}}</option>
+                  <option value="shrimp">{{'TEXT-SHRIMP' | translate}}</option>
+                  <option>{{'TEXT-CHICKEN' | translate}}</option>
+                  <option>{{'TEXT-EGG' | translate}}</option>
+                  <option>{{'TEXT-FISH' | translate}}</option>
+                  <option>{{'TEXT-BEEF' | translate}}</option>
+                  <option>{{'TEXT-OFFAL' | translate}}</option>
+                  <option>{{'TEXT-DUCK' | translate}}</option>
+                  <option>{{'TEXT-PORK' | translate}}</option>
+                  <option>{{'TEXT-SCALLOPS' | translate}}</option>
+                  <option>{{'TEXT-TURKEY' | translate}}</option>
+                  <option>{{'TEXT-PASTA' | translate}}</option>
+                  <option>{{'TEXT-RABBIT' | translate}}</option>
+                  <option>{{'TEXT-RICE' | translate}}</option>
+                  <option>{{'TEXT-LAMB' | translate}}</option>
+                  <option>{{'TEXT-TACO' | translate}}</option>
+                  <option>{{'TEXT-SALMON' | translate}}</option>
+                  <option>{{'TEXT-TROUT' | translate}}</option>
+                  <option>{{'TEXT-MACKEREL' | translate}}</option>
+                  <option>{{'TEXT-SARDINES' | translate}}</option>
+                  <option>{{'TEXT-COD' | translate}}</option>
+                  <option>{{'TEXT-POLLOCK' | translate}}</option>
+                  <option>{{'TEXT-HAKE' | translate}}</option>
+                  <option>{{'TEXT-GREYMULLET' | translate}}</option>
+                  <option>{{'TEXT-LOBSTER' | translate}}</option>
+                  <!-- <option>{{'TEXT-SCALLOPS' | translate}}</option> -->
+                  <option>{{'TEXT-MUSSELS' | translate}}</option>
+                  <option>{{'TEXT-CLAMS' | translate}}</option>
+                  <option>{{'TEXT-TUNA' | translate}}</option>
+                  <option>{{'TEXT-AMERICAN' | translate}}</option>
+                  <option>{{'TEXT-JAPANESE' | translate}}</option>
+                  <option>{{'TEXT-INDIAN' | translate}}</option>
+                  <option>{{'TEXT-CHINESE' | translate}}</option>
+                  <option>{{'TEXT-AFRICAN' | translate}}</option>
+                  <option>{{'TEXT-ASIAN' | translate}}</option>
+                  <option>{{'TEXT-MIDDLEEASTERN' | translate}}</option>
+                  <option>{{'TEXT-GERMAN' | translate}}</option>
+                  <option>{{'TEXT-GREEK' | translate}}</option>
+                  <option>{{'TEXT-ITALIAN' | translate}}</option>
+                  <option>{{'TEXT-MEXICAN' | translate}}</option>
+                  <option>{{'TEXT-THAI' | translate}}</option>
+                  <option>{{'TEXT-CARRIBEAN' | translate}}</option>
+                  <option>{{'TEXT-ENGLISH-SCOTTISH' | translate}}</option>
+                  <option>{{'TEXT-FRENCH' | translate}}</option>
+                  <option>{{'TEXT-GLUTENFREE' | translate}}</option>
+                  <option>{{'TEXT-FATLOSS' | translate}}</option>
+                  <option>{{'TEXT-MUSCLEGAIN' | translate}}</option>
+                  <option>{{'TEXT-ENDURANCE' | translate}}</option>
+                  <option>{{'TEXT-KETO' | translate}}</option>
+                  <option>{{'TEXT-INDONESIAN' | translate}}</option>
+                  <option>{{'TEXT-TUNISIAN' | translate}}</option>
+                  <option>{{'TEXT-NORTHAFRICAN' | translate}}</option>
+                  <option>{{'TEXT-MEDITERRANEAN' | translate}}</option>
+                  <option>{{'TEXT-MORROCAN' | translate}}</option>
+                  <option>{{'TEXT-VEGAN' | translate}}</option>
+                  <option>{{'TEXT-VEGETARIAN' | translate}}</option>
+                  <option>{{'TEXT-SEAFOOD' | translate}}</option>
+                  <option>{{'TEXT-APPETIZER' | translate}}</option>
+                  <option>{{'TEXT-ENTREE' | translate}}</option>
+                  <option>{{'TEXT-BREAD' | translate}}</option>
+                  <option>{{'TEXT-DESSERT' | translate}}</option>
+                  <option>{{'TEXT-COCKTAIL' | translate}}</option>
+                  <option>{{'TEXT-NONALCOHOLICBEVERAGES' | translate}}</option>
+                  <option>{{'TEXT-COLDDRINKS' | translate}}</option>
+                  <option>{{'TEXT-HOTDRINKS' | translate}}</option>
+                  <option>{{'TEXT-COFFEE' | translate}}</option>
+                  <option>{{'TEXT-B-FAST' | translate}}</option>
+                  <option>{{'TEXT-BRUNCH' | translate}}</option>
+                  <option>{{'TEXT-LUNCH' | translate}}</option>
+                  <option>{{'TEXT-SANDWICH' | translate}}</option>
+                  <option>{{'TEXT-SOUP' | translate}}</option>
+                  <option>{{'TEXT-SALAD' | translate}}</option>
+                  <option>{{'TEXT-SIDES' | translate}}</option>
+                  <option>{{'TEXT-SMOOTHIES' | translate}}</option>
+                  <option>{{'TEXT-DINNER' | translate}}</option>
+                  <option>{{'TEXT-FINGERFOOD' | translate}}</option>
+                  <option>{{'TEXT-MONSOON' | translate}}</option>
+                  <option>{{'TEXT-SPRING' | translate}}</option>
+                  <option>{{'TEXT-WINTER' | translate}}</option>
+                  <option>{{'TEXT-SUMMER' | translate}}</option>
+                  <option>{{'TEXT-FALL' | translate}}</option>
+                  <option>{{'TEXT-EASY' | translate}}</option>
+                  <option>{{'TEXT-MEDIUM' | translate}}</option>
+                  <option>{{'TEXT-HARD' | translate}}</option>
+            </select>
+        
+            <!-- <small class="form-text text-muted ">{{'TEXT-ShortTAGS' | translate}}</small> -->
+            <!-- <p ng-show="recipeEdit.tags.$invalid || recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p> -->
+            <p ng-show="recipeEdit.tags.$invalid && !recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p>
+            </div>
+      
+         
+      
+              
+      
+                <a href=""><button type="button" class="btn btn-outline-info btn-lg pull-left">Save</button></a>
+              </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-3" style="margin-top:30px;margin-bottom:30px;">
+            <div class="col-md-offset-2" style="width:75%;">
+              <div class="col-md-12">
+      <!--<h3>Intro</h3>-->
+          <p class="bigheadings">Ingrident<p>
+              <hr class="ruler">          
+           
+              
+                <div class="form-group">
+                 
+      
+                  <select class="ui fluid search dropdown form-control" name="tags" id="tagss" multiple="" size="5" ng-model="recipes[index].tags" ng-maxlength="6" required>
+                  <option value="">{{'TEXT-ShortTAGS' | translate}}</option>
+                  <option value="shrimp">{{'TEXT-SHRIMP' | translate}}</option>
+                  <option>{{'TEXT-CHICKEN' | translate}}</option>
+                  <option>{{'TEXT-EGG' | translate}}</option>
+                  <option>{{'TEXT-FISH' | translate}}</option>
+                  <option>{{'TEXT-BEEF' | translate}}</option>
+                  <option>{{'TEXT-OFFAL' | translate}}</option>
+                  <option>{{'TEXT-DUCK' | translate}}</option>
+                  <option>{{'TEXT-PORK' | translate}}</option>
+                  <option>{{'TEXT-SCALLOPS' | translate}}</option>
+                  <option>{{'TEXT-TURKEY' | translate}}</option>
+                  <option>{{'TEXT-PASTA' | translate}}</option>
+                  <option>{{'TEXT-RABBIT' | translate}}</option>
+                  <option>{{'TEXT-RICE' | translate}}</option>
+                  <option>{{'TEXT-LAMB' | translate}}</option>
+                  <option>{{'TEXT-TACO' | translate}}</option>
+                  <option>{{'TEXT-SALMON' | translate}}</option>
+                  <option>{{'TEXT-TROUT' | translate}}</option>
+                  <option>{{'TEXT-MACKEREL' | translate}}</option>
+                  <option>{{'TEXT-SARDINES' | translate}}</option>
+                  <option>{{'TEXT-COD' | translate}}</option>
+                  <option>{{'TEXT-POLLOCK' | translate}}</option>
+                  <option>{{'TEXT-HAKE' | translate}}</option>
+                  <option>{{'TEXT-GREYMULLET' | translate}}</option>
+                  <option>{{'TEXT-LOBSTER' | translate}}</option>
+                  <!-- <option>{{'TEXT-SCALLOPS' | translate}}</option> -->
+                  <option>{{'TEXT-MUSSELS' | translate}}</option>
+                  <option>{{'TEXT-CLAMS' | translate}}</option>
+                  <option>{{'TEXT-TUNA' | translate}}</option>
+                  <option>{{'TEXT-AMERICAN' | translate}}</option>
+                  <option>{{'TEXT-JAPANESE' | translate}}</option>
+                  <option>{{'TEXT-INDIAN' | translate}}</option>
+                  <option>{{'TEXT-CHINESE' | translate}}</option>
+                  <option>{{'TEXT-AFRICAN' | translate}}</option>
+                  <option>{{'TEXT-ASIAN' | translate}}</option>
+                  <option>{{'TEXT-MIDDLEEASTERN' | translate}}</option>
+                  <option>{{'TEXT-GERMAN' | translate}}</option>
+                  <option>{{'TEXT-GREEK' | translate}}</option>
+                  <option>{{'TEXT-ITALIAN' | translate}}</option>
+                  <option>{{'TEXT-MEXICAN' | translate}}</option>
+                  <option>{{'TEXT-THAI' | translate}}</option>
+                  <option>{{'TEXT-CARRIBEAN' | translate}}</option>
+                  <option>{{'TEXT-ENGLISH-SCOTTISH' | translate}}</option>
+                  <option>{{'TEXT-FRENCH' | translate}}</option>
+                  <option>{{'TEXT-GLUTENFREE' | translate}}</option>
+                  <option>{{'TEXT-FATLOSS' | translate}}</option>
+                  <option>{{'TEXT-MUSCLEGAIN' | translate}}</option>
+                  <option>{{'TEXT-ENDURANCE' | translate}}</option>
+                  <option>{{'TEXT-KETO' | translate}}</option>
+                  <option>{{'TEXT-INDONESIAN' | translate}}</option>
+                  <option>{{'TEXT-TUNISIAN' | translate}}</option>
+                  <option>{{'TEXT-NORTHAFRICAN' | translate}}</option>
+                  <option>{{'TEXT-MEDITERRANEAN' | translate}}</option>
+                  <option>{{'TEXT-MORROCAN' | translate}}</option>
+                  <option>{{'TEXT-VEGAN' | translate}}</option>
+                  <option>{{'TEXT-VEGETARIAN' | translate}}</option>
+                  <option>{{'TEXT-SEAFOOD' | translate}}</option>
+                  <option>{{'TEXT-APPETIZER' | translate}}</option>
+                  <option>{{'TEXT-ENTREE' | translate}}</option>
+                  <option>{{'TEXT-BREAD' | translate}}</option>
+                  <option>{{'TEXT-DESSERT' | translate}}</option>
+                  <option>{{'TEXT-COCKTAIL' | translate}}</option>
+                  <option>{{'TEXT-NONALCOHOLICBEVERAGES' | translate}}</option>
+                  <option>{{'TEXT-COLDDRINKS' | translate}}</option>
+                  <option>{{'TEXT-HOTDRINKS' | translate}}</option>
+                  <option>{{'TEXT-COFFEE' | translate}}</option>
+                  <option>{{'TEXT-B-FAST' | translate}}</option>
+                  <option>{{'TEXT-BRUNCH' | translate}}</option>
+                  <option>{{'TEXT-LUNCH' | translate}}</option>
+                  <option>{{'TEXT-SANDWICH' | translate}}</option>
+                  <option>{{'TEXT-SOUP' | translate}}</option>
+                  <option>{{'TEXT-SALAD' | translate}}</option>
+                  <option>{{'TEXT-SIDES' | translate}}</option>
+                  <option>{{'TEXT-SMOOTHIES' | translate}}</option>
+                  <option>{{'TEXT-DINNER' | translate}}</option>
+                  <option>{{'TEXT-FINGERFOOD' | translate}}</option>
+                  <option>{{'TEXT-MONSOON' | translate}}</option>
+                  <option>{{'TEXT-SPRING' | translate}}</option>
+                  <option>{{'TEXT-WINTER' | translate}}</option>
+                  <option>{{'TEXT-SUMMER' | translate}}</option>
+                  <option>{{'TEXT-FALL' | translate}}</option>
+                  <option>{{'TEXT-EASY' | translate}}</option>
+                  <option>{{'TEXT-MEDIUM' | translate}}</option>
+                  <option>{{'TEXT-HARD' | translate}}</option>
+            </select>
+        
+            <!-- <small class="form-text text-muted ">{{'TEXT-ShortTAGS' | translate}}</small> -->
+            <!-- <p ng-show="recipeEdit.tags.$invalid || recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p> -->
+            <p ng-show="recipeEdit.tags.$invalid && !recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p>
+            </div>
+      
+         
+      
+              
+      
+                <a href=""><button type="button" class="btn btn-outline-info btn-lg pull-left">Save</button></a>
+              </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-4" style="margin-top:30px;margin-bottom:30px;">
+            <div class="col-md-offset-2" style="width:75%;">
+              <div class="col-md-12">
+      <!--<h3>Intro</h3>-->
+          <p class="bigheadings">Ingrident<p>
+              <hr class="ruler">          
+           
+              
+                <div class="form-group">
+                 
+      
+                  <select class="ui fluid search dropdown form-control" name="tags" id="tagss" multiple="" size="5" ng-model="recipes[index].tags" ng-maxlength="6" required>
+                  <option value="">{{'TEXT-ShortTAGS' | translate}}</option>
+                  <option value="shrimp">{{'TEXT-SHRIMP' | translate}}</option>
+                  <option>{{'TEXT-CHICKEN' | translate}}</option>
+                  <option>{{'TEXT-EGG' | translate}}</option>
+                  <option>{{'TEXT-FISH' | translate}}</option>
+                  <option>{{'TEXT-BEEF' | translate}}</option>
+                  <option>{{'TEXT-OFFAL' | translate}}</option>
+                  <option>{{'TEXT-DUCK' | translate}}</option>
+                  <option>{{'TEXT-PORK' | translate}}</option>
+                  <option>{{'TEXT-SCALLOPS' | translate}}</option>
+                  <option>{{'TEXT-TURKEY' | translate}}</option>
+                  <option>{{'TEXT-PASTA' | translate}}</option>
+                  <option>{{'TEXT-RABBIT' | translate}}</option>
+                  <option>{{'TEXT-RICE' | translate}}</option>
+                  <option>{{'TEXT-LAMB' | translate}}</option>
+                  <option>{{'TEXT-TACO' | translate}}</option>
+                  <option>{{'TEXT-SALMON' | translate}}</option>
+                  <option>{{'TEXT-TROUT' | translate}}</option>
+                  <option>{{'TEXT-MACKEREL' | translate}}</option>
+                  <option>{{'TEXT-SARDINES' | translate}}</option>
+                  <option>{{'TEXT-COD' | translate}}</option>
+                  <option>{{'TEXT-POLLOCK' | translate}}</option>
+                  <option>{{'TEXT-HAKE' | translate}}</option>
+                  <option>{{'TEXT-GREYMULLET' | translate}}</option>
+                  <option>{{'TEXT-LOBSTER' | translate}}</option>
+                  <!-- <option>{{'TEXT-SCALLOPS' | translate}}</option> -->
+                  <option>{{'TEXT-MUSSELS' | translate}}</option>
+                  <option>{{'TEXT-CLAMS' | translate}}</option>
+                  <option>{{'TEXT-TUNA' | translate}}</option>
+                  <option>{{'TEXT-AMERICAN' | translate}}</option>
+                  <option>{{'TEXT-JAPANESE' | translate}}</option>
+                  <option>{{'TEXT-INDIAN' | translate}}</option>
+                  <option>{{'TEXT-CHINESE' | translate}}</option>
+                  <option>{{'TEXT-AFRICAN' | translate}}</option>
+                  <option>{{'TEXT-ASIAN' | translate}}</option>
+                  <option>{{'TEXT-MIDDLEEASTERN' | translate}}</option>
+                  <option>{{'TEXT-GERMAN' | translate}}</option>
+                  <option>{{'TEXT-GREEK' | translate}}</option>
+                  <option>{{'TEXT-ITALIAN' | translate}}</option>
+                  <option>{{'TEXT-MEXICAN' | translate}}</option>
+                  <option>{{'TEXT-THAI' | translate}}</option>
+                  <option>{{'TEXT-CARRIBEAN' | translate}}</option>
+                  <option>{{'TEXT-ENGLISH-SCOTTISH' | translate}}</option>
+                  <option>{{'TEXT-FRENCH' | translate}}</option>
+                  <option>{{'TEXT-GLUTENFREE' | translate}}</option>
+                  <option>{{'TEXT-FATLOSS' | translate}}</option>
+                  <option>{{'TEXT-MUSCLEGAIN' | translate}}</option>
+                  <option>{{'TEXT-ENDURANCE' | translate}}</option>
+                  <option>{{'TEXT-KETO' | translate}}</option>
+                  <option>{{'TEXT-INDONESIAN' | translate}}</option>
+                  <option>{{'TEXT-TUNISIAN' | translate}}</option>
+                  <option>{{'TEXT-NORTHAFRICAN' | translate}}</option>
+                  <option>{{'TEXT-MEDITERRANEAN' | translate}}</option>
+                  <option>{{'TEXT-MORROCAN' | translate}}</option>
+                  <option>{{'TEXT-VEGAN' | translate}}</option>
+                  <option>{{'TEXT-VEGETARIAN' | translate}}</option>
+                  <option>{{'TEXT-SEAFOOD' | translate}}</option>
+                  <option>{{'TEXT-APPETIZER' | translate}}</option>
+                  <option>{{'TEXT-ENTREE' | translate}}</option>
+                  <option>{{'TEXT-BREAD' | translate}}</option>
+                  <option>{{'TEXT-DESSERT' | translate}}</option>
+                  <option>{{'TEXT-COCKTAIL' | translate}}</option>
+                  <option>{{'TEXT-NONALCOHOLICBEVERAGES' | translate}}</option>
+                  <option>{{'TEXT-COLDDRINKS' | translate}}</option>
+                  <option>{{'TEXT-HOTDRINKS' | translate}}</option>
+                  <option>{{'TEXT-COFFEE' | translate}}</option>
+                  <option>{{'TEXT-B-FAST' | translate}}</option>
+                  <option>{{'TEXT-BRUNCH' | translate}}</option>
+                  <option>{{'TEXT-LUNCH' | translate}}</option>
+                  <option>{{'TEXT-SANDWICH' | translate}}</option>
+                  <option>{{'TEXT-SOUP' | translate}}</option>
+                  <option>{{'TEXT-SALAD' | translate}}</option>
+                  <option>{{'TEXT-SIDES' | translate}}</option>
+                  <option>{{'TEXT-SMOOTHIES' | translate}}</option>
+                  <option>{{'TEXT-DINNER' | translate}}</option>
+                  <option>{{'TEXT-FINGERFOOD' | translate}}</option>
+                  <option>{{'TEXT-MONSOON' | translate}}</option>
+                  <option>{{'TEXT-SPRING' | translate}}</option>
+                  <option>{{'TEXT-WINTER' | translate}}</option>
+                  <option>{{'TEXT-SUMMER' | translate}}</option>
+                  <option>{{'TEXT-FALL' | translate}}</option>
+                  <option>{{'TEXT-EASY' | translate}}</option>
+                  <option>{{'TEXT-MEDIUM' | translate}}</option>
+                  <option>{{'TEXT-HARD' | translate}}</option>
+            </select>
+        
+            <!-- <small class="form-text text-muted ">{{'TEXT-ShortTAGS' | translate}}</small> -->
+            <!-- <p ng-show="recipeEdit.tags.$invalid || recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p> -->
+            <p ng-show="recipeEdit.tags.$invalid && !recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p>
+            </div>
+      
+         
+      
+              
+      
+                <a href=""><button type="button" class="btn btn-outline-info btn-lg pull-left">Save</button></a>
+              </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-5" style="margin-top:30px;margin-bottom:30px;">
+            <div class="col-md-offset-2" style="width:75%;">
+              <div class="col-md-12">
+      <!--<h3>Intro</h3>-->
+          <p class="bigheadings">Ingrident<p>
+              <hr class="ruler">          
+           
+              
+                <div class="form-group">
+                 
+      
+                  <select class="ui fluid search dropdown form-control" name="tags" id="tagss" multiple="" size="5" ng-model="recipes[index].tags" ng-maxlength="6" required>
+                  <option value="">{{'TEXT-ShortTAGS' | translate}}</option>
+                  <option value="shrimp">{{'TEXT-SHRIMP' | translate}}</option>
+                  <option>{{'TEXT-CHICKEN' | translate}}</option>
+                  <option>{{'TEXT-EGG' | translate}}</option>
+                  <option>{{'TEXT-FISH' | translate}}</option>
+                  <option>{{'TEXT-BEEF' | translate}}</option>
+                  <option>{{'TEXT-OFFAL' | translate}}</option>
+                  <option>{{'TEXT-DUCK' | translate}}</option>
+                  <option>{{'TEXT-PORK' | translate}}</option>
+                  <option>{{'TEXT-SCALLOPS' | translate}}</option>
+                  <option>{{'TEXT-TURKEY' | translate}}</option>
+                  <option>{{'TEXT-PASTA' | translate}}</option>
+                  <option>{{'TEXT-RABBIT' | translate}}</option>
+                  <option>{{'TEXT-RICE' | translate}}</option>
+                  <option>{{'TEXT-LAMB' | translate}}</option>
+                  <option>{{'TEXT-TACO' | translate}}</option>
+                  <option>{{'TEXT-SALMON' | translate}}</option>
+                  <option>{{'TEXT-TROUT' | translate}}</option>
+                  <option>{{'TEXT-MACKEREL' | translate}}</option>
+                  <option>{{'TEXT-SARDINES' | translate}}</option>
+                  <option>{{'TEXT-COD' | translate}}</option>
+                  <option>{{'TEXT-POLLOCK' | translate}}</option>
+                  <option>{{'TEXT-HAKE' | translate}}</option>
+                  <option>{{'TEXT-GREYMULLET' | translate}}</option>
+                  <option>{{'TEXT-LOBSTER' | translate}}</option>
+                  <!-- <option>{{'TEXT-SCALLOPS' | translate}}</option> -->
+                  <option>{{'TEXT-MUSSELS' | translate}}</option>
+                  <option>{{'TEXT-CLAMS' | translate}}</option>
+                  <option>{{'TEXT-TUNA' | translate}}</option>
+                  <option>{{'TEXT-AMERICAN' | translate}}</option>
+                  <option>{{'TEXT-JAPANESE' | translate}}</option>
+                  <option>{{'TEXT-INDIAN' | translate}}</option>
+                  <option>{{'TEXT-CHINESE' | translate}}</option>
+                  <option>{{'TEXT-AFRICAN' | translate}}</option>
+                  <option>{{'TEXT-ASIAN' | translate}}</option>
+                  <option>{{'TEXT-MIDDLEEASTERN' | translate}}</option>
+                  <option>{{'TEXT-GERMAN' | translate}}</option>
+                  <option>{{'TEXT-GREEK' | translate}}</option>
+                  <option>{{'TEXT-ITALIAN' | translate}}</option>
+                  <option>{{'TEXT-MEXICAN' | translate}}</option>
+                  <option>{{'TEXT-THAI' | translate}}</option>
+                  <option>{{'TEXT-CARRIBEAN' | translate}}</option>
+                  <option>{{'TEXT-ENGLISH-SCOTTISH' | translate}}</option>
+                  <option>{{'TEXT-FRENCH' | translate}}</option>
+                  <option>{{'TEXT-GLUTENFREE' | translate}}</option>
+                  <option>{{'TEXT-FATLOSS' | translate}}</option>
+                  <option>{{'TEXT-MUSCLEGAIN' | translate}}</option>
+                  <option>{{'TEXT-ENDURANCE' | translate}}</option>
+                  <option>{{'TEXT-KETO' | translate}}</option>
+                  <option>{{'TEXT-INDONESIAN' | translate}}</option>
+                  <option>{{'TEXT-TUNISIAN' | translate}}</option>
+                  <option>{{'TEXT-NORTHAFRICAN' | translate}}</option>
+                  <option>{{'TEXT-MEDITERRANEAN' | translate}}</option>
+                  <option>{{'TEXT-MORROCAN' | translate}}</option>
+                  <option>{{'TEXT-VEGAN' | translate}}</option>
+                  <option>{{'TEXT-VEGETARIAN' | translate}}</option>
+                  <option>{{'TEXT-SEAFOOD' | translate}}</option>
+                  <option>{{'TEXT-APPETIZER' | translate}}</option>
+                  <option>{{'TEXT-ENTREE' | translate}}</option>
+                  <option>{{'TEXT-BREAD' | translate}}</option>
+                  <option>{{'TEXT-DESSERT' | translate}}</option>
+                  <option>{{'TEXT-COCKTAIL' | translate}}</option>
+                  <option>{{'TEXT-NONALCOHOLICBEVERAGES' | translate}}</option>
+                  <option>{{'TEXT-COLDDRINKS' | translate}}</option>
+                  <option>{{'TEXT-HOTDRINKS' | translate}}</option>
+                  <option>{{'TEXT-COFFEE' | translate}}</option>
+                  <option>{{'TEXT-B-FAST' | translate}}</option>
+                  <option>{{'TEXT-BRUNCH' | translate}}</option>
+                  <option>{{'TEXT-LUNCH' | translate}}</option>
+                  <option>{{'TEXT-SANDWICH' | translate}}</option>
+                  <option>{{'TEXT-SOUP' | translate}}</option>
+                  <option>{{'TEXT-SALAD' | translate}}</option>
+                  <option>{{'TEXT-SIDES' | translate}}</option>
+                  <option>{{'TEXT-SMOOTHIES' | translate}}</option>
+                  <option>{{'TEXT-DINNER' | translate}}</option>
+                  <option>{{'TEXT-FINGERFOOD' | translate}}</option>
+                  <option>{{'TEXT-MONSOON' | translate}}</option>
+                  <option>{{'TEXT-SPRING' | translate}}</option>
+                  <option>{{'TEXT-WINTER' | translate}}</option>
+                  <option>{{'TEXT-SUMMER' | translate}}</option>
+                  <option>{{'TEXT-FALL' | translate}}</option>
+                  <option>{{'TEXT-EASY' | translate}}</option>
+                  <option>{{'TEXT-MEDIUM' | translate}}</option>
+                  <option>{{'TEXT-HARD' | translate}}</option>
+            </select>
+        
+            <!-- <small class="form-text text-muted ">{{'TEXT-ShortTAGS' | translate}}</small> -->
+            <!-- <p ng-show="recipeEdit.tags.$invalid || recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p> -->
+            <p ng-show="recipeEdit.tags.$invalid && !recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p>
+            </div>
+      
+         
+      
+              
+      
+                <a href=""><button type="button" class="btn btn-outline-info btn-lg pull-left">Save</button></a>
+              </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-6" style="margin-top:30px;margin-bottom:30px;">
+            <div class="col-md-offset-2" style="width:75%;">
+              <div class="col-md-12">
+      <!--<h3>Intro</h3>-->
+          <p class="bigheadings">Ingrident<p>
+              <hr class="ruler">          
+           
+              
+                <div class="form-group">
+                 
+      
+                  <select class="ui fluid search dropdown form-control" name="tags" id="tagss" multiple="" size="5" ng-model="recipes[index].tags" ng-maxlength="6" required>
+                  <option value="">{{'TEXT-ShortTAGS' | translate}}</option>
+                  <option value="shrimp">{{'TEXT-SHRIMP' | translate}}</option>
+                  <option>{{'TEXT-CHICKEN' | translate}}</option>
+                  <option>{{'TEXT-EGG' | translate}}</option>
+                  <option>{{'TEXT-FISH' | translate}}</option>
+                  <option>{{'TEXT-BEEF' | translate}}</option>
+                  <option>{{'TEXT-OFFAL' | translate}}</option>
+                  <option>{{'TEXT-DUCK' | translate}}</option>
+                  <option>{{'TEXT-PORK' | translate}}</option>
+                  <option>{{'TEXT-SCALLOPS' | translate}}</option>
+                  <option>{{'TEXT-TURKEY' | translate}}</option>
+                  <option>{{'TEXT-PASTA' | translate}}</option>
+                  <option>{{'TEXT-RABBIT' | translate}}</option>
+                  <option>{{'TEXT-RICE' | translate}}</option>
+                  <option>{{'TEXT-LAMB' | translate}}</option>
+                  <option>{{'TEXT-TACO' | translate}}</option>
+                  <option>{{'TEXT-SALMON' | translate}}</option>
+                  <option>{{'TEXT-TROUT' | translate}}</option>
+                  <option>{{'TEXT-MACKEREL' | translate}}</option>
+                  <option>{{'TEXT-SARDINES' | translate}}</option>
+                  <option>{{'TEXT-COD' | translate}}</option>
+                  <option>{{'TEXT-POLLOCK' | translate}}</option>
+                  <option>{{'TEXT-HAKE' | translate}}</option>
+                  <option>{{'TEXT-GREYMULLET' | translate}}</option>
+                  <option>{{'TEXT-LOBSTER' | translate}}</option>
+                  <!-- <option>{{'TEXT-SCALLOPS' | translate}}</option> -->
+                  <option>{{'TEXT-MUSSELS' | translate}}</option>
+                  <option>{{'TEXT-CLAMS' | translate}}</option>
+                  <option>{{'TEXT-TUNA' | translate}}</option>
+                  <option>{{'TEXT-AMERICAN' | translate}}</option>
+                  <option>{{'TEXT-JAPANESE' | translate}}</option>
+                  <option>{{'TEXT-INDIAN' | translate}}</option>
+                  <option>{{'TEXT-CHINESE' | translate}}</option>
+                  <option>{{'TEXT-AFRICAN' | translate}}</option>
+                  <option>{{'TEXT-ASIAN' | translate}}</option>
+                  <option>{{'TEXT-MIDDLEEASTERN' | translate}}</option>
+                  <option>{{'TEXT-GERMAN' | translate}}</option>
+                  <option>{{'TEXT-GREEK' | translate}}</option>
+                  <option>{{'TEXT-ITALIAN' | translate}}</option>
+                  <option>{{'TEXT-MEXICAN' | translate}}</option>
+                  <option>{{'TEXT-THAI' | translate}}</option>
+                  <option>{{'TEXT-CARRIBEAN' | translate}}</option>
+                  <option>{{'TEXT-ENGLISH-SCOTTISH' | translate}}</option>
+                  <option>{{'TEXT-FRENCH' | translate}}</option>
+                  <option>{{'TEXT-GLUTENFREE' | translate}}</option>
+                  <option>{{'TEXT-FATLOSS' | translate}}</option>
+                  <option>{{'TEXT-MUSCLEGAIN' | translate}}</option>
+                  <option>{{'TEXT-ENDURANCE' | translate}}</option>
+                  <option>{{'TEXT-KETO' | translate}}</option>
+                  <option>{{'TEXT-INDONESIAN' | translate}}</option>
+                  <option>{{'TEXT-TUNISIAN' | translate}}</option>
+                  <option>{{'TEXT-NORTHAFRICAN' | translate}}</option>
+                  <option>{{'TEXT-MEDITERRANEAN' | translate}}</option>
+                  <option>{{'TEXT-MORROCAN' | translate}}</option>
+                  <option>{{'TEXT-VEGAN' | translate}}</option>
+                  <option>{{'TEXT-VEGETARIAN' | translate}}</option>
+                  <option>{{'TEXT-SEAFOOD' | translate}}</option>
+                  <option>{{'TEXT-APPETIZER' | translate}}</option>
+                  <option>{{'TEXT-ENTREE' | translate}}</option>
+                  <option>{{'TEXT-BREAD' | translate}}</option>
+                  <option>{{'TEXT-DESSERT' | translate}}</option>
+                  <option>{{'TEXT-COCKTAIL' | translate}}</option>
+                  <option>{{'TEXT-NONALCOHOLICBEVERAGES' | translate}}</option>
+                  <option>{{'TEXT-COLDDRINKS' | translate}}</option>
+                  <option>{{'TEXT-HOTDRINKS' | translate}}</option>
+                  <option>{{'TEXT-COFFEE' | translate}}</option>
+                  <option>{{'TEXT-B-FAST' | translate}}</option>
+                  <option>{{'TEXT-BRUNCH' | translate}}</option>
+                  <option>{{'TEXT-LUNCH' | translate}}</option>
+                  <option>{{'TEXT-SANDWICH' | translate}}</option>
+                  <option>{{'TEXT-SOUP' | translate}}</option>
+                  <option>{{'TEXT-SALAD' | translate}}</option>
+                  <option>{{'TEXT-SIDES' | translate}}</option>
+                  <option>{{'TEXT-SMOOTHIES' | translate}}</option>
+                  <option>{{'TEXT-DINNER' | translate}}</option>
+                  <option>{{'TEXT-FINGERFOOD' | translate}}</option>
+                  <option>{{'TEXT-MONSOON' | translate}}</option>
+                  <option>{{'TEXT-SPRING' | translate}}</option>
+                  <option>{{'TEXT-WINTER' | translate}}</option>
+                  <option>{{'TEXT-SUMMER' | translate}}</option>
+                  <option>{{'TEXT-FALL' | translate}}</option>
+                  <option>{{'TEXT-EASY' | translate}}</option>
+                  <option>{{'TEXT-MEDIUM' | translate}}</option>
+                  <option>{{'TEXT-HARD' | translate}}</option>
+            </select>
+        
+            <!-- <small class="form-text text-muted ">{{'TEXT-ShortTAGS' | translate}}</small> -->
+            <!-- <p ng-show="recipeEdit.tags.$invalid || recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p> -->
+            <p ng-show="recipeEdit.tags.$invalid && !recipeEdit.tags.$pristine" class="help-block">{{'TEXT-ErrTAGS' | translate}}</p>
+            </div>
+      
+         
+      
+              
+      
+                <a href=""><button type="button" class="btn btn-outline-info btn-lg pull-left">Save</button></a>
+              </div>
+            </div>
+        </div>
